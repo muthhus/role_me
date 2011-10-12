@@ -1,3 +1,39 @@
 = RoleMe
 
-This project rocks and uses MIT-LICENSE.
+Adds simple role handling to model.
+
+== How to use
+
+Supose you have a User model:
+
+    class User < ActiveRecord::Base
+      has_roles
+    end
+
+Then, you have:
+
+    user = User.first
+    user.has_role! :admin     # adds the admin role to the model
+    user.has_role? :admin     # checks if the model has the admin role
+
+== has_roles Options
+
+* :role_class
+  RoleMe::Role by default. You can use you own role model, just pass it through here. The only thing your custom role model must implement is a scope, or method to fetch a role by its name (named `by_name`). Example:
+    def by_name(role_name)
+      self.where(:name => role_name).first
+    end
+
+* :role_join_table
+  This is the name pf the join table between the roled and the role model. By default "role_me_roles_join".
+
+
+== Installation
+
+Add to your `Gemfile`:
+
+    gem 'role_me'
+
+And use the role_me:role_migration generator to create the role migration, if you are using the gem role model.
+
+    rails generator role_me:role_migration
