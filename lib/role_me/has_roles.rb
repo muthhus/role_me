@@ -5,9 +5,9 @@ module RoleMe
     module ClassMethods
       # Adds roles to the model. options:
       #
-      # * :role_class => "RoleMe::Roles"
+      # * :role_class => "RoleMe::Role"
       #   Sets the default model that holds roles.
-      #   Default: "RoleMe::Roles"
+      #   Default: "RoleMe::Role"
       #
       # * :role_join_table => "role_me_roles_join"
       #   Table to hold the has_and_belongs_to_many keys
@@ -26,7 +26,7 @@ module RoleMe
         attr_accessor :role_me_options
 
         options.reverse_merge!({
-          :role_class       => "RoleMe::Roles",
+          :role_class       => "RoleMe::Role",
           :role_join_table  => "role_me_roles_join"
         })
 

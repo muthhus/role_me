@@ -100,6 +100,7 @@ GEM
       activesupport (~> 3.0)
       railties (~> 3.0)
       rspec (~> 2.6.0)
+    shoulda (2.11.3)
     sprockets (2.0.2)
       hike (~> 1.2)
       rack (~> 1.0)
@@ -124,4 +125,5 @@ DEPENDENCIES
   role_me!
   rspec
   rspec-rails
+  shoulda
   sqlite3
