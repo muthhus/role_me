@@ -19,10 +19,9 @@ Then, you have:
 == has_roles Options
 
 * :role_class
-  RoleMe::Role by default. You can use you own role model, just pass it through here. The only thing your custom role model must implement is a scope, or method to fetch a role by its name (named `by_name`). Example:
-    def by_name(role_name)
-      self.where(:name => role_name).first
-    end
+  RoleMe::Role by default. You can use you own role model, just pass it through here. There are few restrictions when you use your own model:
+  * You must implement the `create_with_name(role_name)` method. To create a role with the name.
+  * You must implement a `by_name(role_name)` scope. To select a role by it's name.
 
 * :role_join_table
   This is the name pf the join table between the roled and the role model. By default "role_me_roles_join".

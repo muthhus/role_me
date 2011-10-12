@@ -20,7 +20,7 @@ module RoleMe
       #   * has_role :role_class => "Role"
       #
       #
-      def has_roles options = {}
+      def has_roles(options = {})
         return if self.included_modules.include?(RoleMe::HasRolesMethods)
 
         attr_accessor :role_me_options
@@ -50,8 +50,9 @@ module RoleMe
       #   user.has_role! :admin
       #   -> will add the admin role to user
       #
-      def has_role! role
-
+      def has_role!(role_name)
+        return if has_role?(role_model)
+        self.roles << find_or_create_role_by_name(role.to_s)
       end
 
       # Check if the model has the role
@@ -61,8 +62,24 @@ module RoleMe
       #   user.has_role? :admin
       #   -> will return true if the user has the admin role
       #
-      def has_role? role
+      def has_role?(role_name)
+        if self.roles.by_name(role_name.to_s).all.empty?
+          false
+        else
+          true
+        end
+      end
 
+      private
+
+      # Checks if the role exists or create a new one
+      # and returns it
+      def find_or_create_role_by_name(role_name)
+        begin
+         self.options[:role_class].constantize.by_name(role_name)
+        rescue
+          self.options[:role_class].constantize.create_with_name(role_name)
+        end
       end
 
     end
