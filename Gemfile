@@ -17,6 +17,10 @@ group :development, :test do
   gem "shoulda"
   gem "capybara"
   gem "database_cleaner"
+  gem 'metric_fu'
+  gem 'map'
+  gem 'fattr'
+  gem 'arrayfields'
 end
 
 # Declare any dependencies that are still in development here instead of in

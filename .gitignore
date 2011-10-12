@@ -2,6 +2,8 @@
 .DS_Store
 *.swp
 *.swo
+doc/
+tmp/
 log/*.log
 pkg/
 test/dummy/db/*.sqlite3

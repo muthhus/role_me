@@ -17,16 +17,6 @@ Then, you have:
     user.has_role! :admin     # adds the admin role to the model
     user.has_role? :admin     # checks if the model has the admin role
 
-== has_roles Options
-
-* :role_class_name
-
-  "RoleMe::Role" by default. You can use you own role model, just pass it through here.
-
-* :role_join_table
-
-  This is the name of the join table between the roled and the role model. By default "role_me_roles_join".
-
 == Installation
 
 Add to your `Gemfile`:
@@ -37,9 +27,21 @@ And use the role_me:role_migration generator to create the role migration, if yo
 
     rails generator role_me:role_migration
 
+
 == Custom Role Model
 
-If you are using a custom model for Roles, please make sure that:
+If you want to use a custom model for Roles, please make sure that:
 
 * It has a `with_name(role_name)` scope. This must filter the roles by their names.
 * It responds to `find_or_create_by_name(role_name)`. Implement this if you are not using AR.
+
+=== has_roles Options
+
+* :role_class_name
+
+  "RoleMe::Role" by default. You can use you own role model, just pass it through here.
+
+* :role_join_table
+
+  This is the name of the join table between the roled and the role model. By default "role_me_roles_join".
+
