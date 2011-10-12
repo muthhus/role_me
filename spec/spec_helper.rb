@@ -13,6 +13,7 @@ ActionMailer::Base.default_url_options[:host] = "test.com"
 Rails.backtrace_cleaner.remove_silencers!
 
 # Configure capybara for integration testing
+require 'shoulda'
 require "capybara/rails"
 Capybara.default_driver   = :rack_test
 Capybara.default_selector = :css

@@ -28,7 +28,7 @@ describe User do
     it "should assign a role that doesnt exist with has_role!" do
       @user.roles.should be_empty
       @user.has_role!(:guest)
-      @user.roles.should_not be_emtpy
+      @user.roles.should_not be_empty
       @user.has_role?(:guest).should be_true
     end
 

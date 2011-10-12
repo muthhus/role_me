@@ -1,6 +1,6 @@
 class RoleMe::Role < ActiveRecord::Base
 
-  scope :by_name, lambda { |role_name| where(:name => role_name).limit(1).first }
+  scope :with_name, lambda { |role_name| where(:name => role_name).limit(1) }
 
 
   def self.create_with_name(role_name)

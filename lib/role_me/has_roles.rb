@@ -26,8 +26,8 @@ module RoleMe
         cattr_accessor :role_me_options
 
         options.reverse_merge!({
-          :role_class       => "RoleMe::Role",
-          :join_table  => "role_me_roles_join"
+          :role_class_name  => "::RoleMe::Role",
+          :role_join_table  => "role_me_roles_join"
         })
 
         self.role_me_options = options
@@ -46,8 +46,9 @@ module RoleMe
     included do
 
       has_and_belongs_to_many :roles,
-                              :class_name => self.role_me_options[:role_class_name],
-                              :join_table => self.role_me_options[:role_join_table]
+        :class_name   => self.role_me_options[:role_class_name],
+        :join_table   => self.role_me_options[:role_join_table],
+        :foreign_key  => "roled_id"
 
     end
 
@@ -61,8 +62,8 @@ module RoleMe
       #   -> will add the admin role to user
       #
       def has_role!(role_name)
-        return if has_role?(role_model)
-        self.roles << find_or_create_role_by_name(role.to_s)
+        return if has_role?(role_name)
+        self.roles << find_or_create_role_by_name(role_name.to_s)
       end
 
       # Check if the model has the role
@@ -73,7 +74,7 @@ module RoleMe
       #   -> will return true if the user has the admin role
       #
       def has_role?(role_name)
-        if self.roles.by_name(role_name.to_s).all.empty?
+        if self.roles.with_name(role_name.to_s).all.empty?
           false
         else
           true
@@ -85,11 +86,7 @@ module RoleMe
       # Checks if the role exists or create a new one
       # and returns it
       def find_or_create_role_by_name(role_name)
-        begin
-         self.options[:role_class].constantize.by_name(role_name)
-        rescue
-          self.options[:role_class].constantize.create_with_name(role_name)
-        end
+        self.class.role_me_options[:role_class_name].constantize.find_or_create_by_name(role_name)
       end
 
     end
