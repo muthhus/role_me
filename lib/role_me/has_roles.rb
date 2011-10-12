@@ -6,18 +6,32 @@ module RoleMe
       # Adds roles to the model. options:
       #
       # * :role_class_name => "RoleMe::Role"
+      #
       #   Sets the default model that holds roles.
       #   Default: "RoleMe::Role"
       #
       # * :role_join_table => "role_me_roles_join"
+      #
       #   Table to hold the has_and_belongs_to_many keys
       #   Default : "role_me_roles_join"
       #
-      #   Examples:
+      # Examples:
       #
       #   * has_role
-      #
       #   * has_role :role_class_name => "Role"
+      #
+      #
+      # If you are using a custom model for Role, please note:
+      #
+      # * Your model must respond to a scope `with_name` that selects
+      # a role by its name.
+      #
+      # * Your model must respond to `find_or_create_by_name`. If you are note using
+      # AR, you must implement this.
+      #
+      # The join table must have these columns:
+      #   `roled_id`  -> to store your "user" id
+      #   `role_id`   -> to store your "role" id
       #
       #
       def has_roles(options = {})
@@ -75,11 +89,7 @@ module RoleMe
       #   -> will return true if the user has the admin role
       #
       def has_role?(role_name)
-        if self.roles.with_name(role_name.to_s).all.empty?
-          false
-        else
-          true
-        end
+        not self.roles.with_name(role_name.to_s).empty?
       end
 
       private

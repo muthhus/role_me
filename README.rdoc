@@ -4,9 +4,10 @@ Adds simple role handling to model.
 
 == How to use
 
-Supose you have a User model:
+Supose you have an User model:
 
     class User < ActiveRecord::Base
+      include RoleMe::HasRoles
       has_roles
     end
 
@@ -19,13 +20,12 @@ Then, you have:
 == has_roles Options
 
 * :role_class_name
-  RoleMe::Role by default. You can use you own role model, just pass it through here. There are few restrictions when you use your own model:
-  * It must respond to `find_or_create_by_name(role_name)`. If you are not using AR, you must implement this.
-  * You must implement a `with_name(role_name)` scope. To select a role by it's name.
+
+  "RoleMe::Role" by default. You can use you own role model, just pass it through here.
 
 * :role_join_table
-  This is the name pf the join table between the roled and the role model. By default "role_me_roles_join".
 
+  This is the name of the join table between the roled and the role model. By default "role_me_roles_join".
 
 == Installation
 
@@ -33,6 +33,13 @@ Add to your `Gemfile`:
 
     gem 'role_me'
 
-And use the role_me:role_migration generator to create the role migration, if you are using the gem role model.
+And use the role_me:role_migration generator to create the role migration, if you are using the gem's role model.
 
     rails generator role_me:role_migration
+
+== Custom Role Model
+
+If you are using a custom model for Roles, please make sure that:
+
+* It has a `with_name(role_name)` scope. This must filter the roles by their names.
+* It responds to `find_or_create_by_name(role_name)`. Implement this if you are not using AR.

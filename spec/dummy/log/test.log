@@ -1199,3 +1199,468 @@ Migrating to CustomRolesJoin (20111012225822)
   [1m[36m (0.2ms)[0m  [1mINSERT INTO "role_me_roles_join" ("roled_id", "role_id") VALUES (66, 81)[0m
   [1m[35mRoleMe::Role Load (0.2ms)[0m  SELECT "role_me_roles".* FROM "role_me_roles" INNER JOIN "role_me_roles_join" ON "role_me_roles"."id" = "role_me_roles_join"."role_id" WHERE "role_me_roles_join"."roled_id" = 66 AND "role_me_roles"."name" = 'weird' LIMIT 1
   [1m[36mRoleMe::Role Load (0.2ms)[0m  [1mSELECT "role_me_roles".* FROM "role_me_roles" INNER JOIN "role_me_roles_join" ON "role_me_roles"."id" = "role_me_roles_join"."role_id" WHERE "role_me_roles_join"."roled_id" = 66[0m
+  [1m[36m (0.1ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations" [0m
+Migrating to CreateUsers (20111012184816)
+Migrating to CreateRoleMeRoles (20111012220750)
+Migrating to CreateRoleMeRolesJoin (20111012220751)
+Migrating to CreateCustomRoleds (20111012225648)
+Migrating to CreateCustomRoles (20111012225705)
+Migrating to CustomRolesJoin (20111012225822)
+  [1m[35m (1.2ms)[0m  DELETE FROM "users";
+  [1m[36m (1.3ms)[0m  [1mDELETE FROM "role_me_roles";[0m
+  [1m[35m (1.3ms)[0m  DELETE FROM "role_me_roles_join";
+  [1m[36m (1.2ms)[0m  [1mDELETE FROM "custom_roleds";[0m
+  [1m[35m (1.3ms)[0m  DELETE FROM "custom_roles";
+  [1m[36m (1.3ms)[0m  [1mDELETE FROM "custom_roles_join";[0m
+  [1m[35m (1.1ms)[0m  DELETE FROM "users";
+  [1m[36m (1.3ms)[0m  [1mDELETE FROM "role_me_roles";[0m
+  [1m[35m (1.3ms)[0m  DELETE FROM "role_me_roles_join";
+  [1m[36m (1.2ms)[0m  [1mDELETE FROM "custom_roleds";[0m
+  [1m[35m (1.2ms)[0m  DELETE FROM "custom_roles";
+  [1m[36m (1.2ms)[0m  [1mDELETE FROM "custom_roles_join";[0m
+  [1m[35m (1.1ms)[0m  DELETE FROM "users";
+  [1m[36m (1.4ms)[0m  [1mDELETE FROM "role_me_roles";[0m
+  [1m[35m (1.2ms)[0m  DELETE FROM "role_me_roles_join";
+  [1m[36m (1.3ms)[0m  [1mDELETE FROM "custom_roleds";[0m
+  [1m[35m (1.8ms)[0m  DELETE FROM "custom_roles";
+  [1m[36m (1.4ms)[0m  [1mDELETE FROM "custom_roles_join";[0m
+  [1m[35mSQL (19.7ms)[0m  INSERT INTO "custom_roles" ("created_at", "name", "updated_at") VALUES (?, ?, ?)  [["created_at", Wed, 12 Oct 2011 23:14:57 UTC +00:00], ["name", :admin], ["updated_at", Wed, 12 Oct 2011 23:14:57 UTC +00:00]]
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "custom_roleds" ("created_at", "updated_at") VALUES (?, ?)[0m  [["created_at", Wed, 12 Oct 2011 23:14:57 UTC +00:00], ["updated_at", Wed, 12 Oct 2011 23:14:57 UTC +00:00]]
+  [1m[35mCustomRole Load (0.2ms)[0m  SELECT "custom_roles".* FROM "custom_roles" INNER JOIN "custom_roles_join" ON "custom_roles"."id" = "custom_roles_join"."role_id" WHERE "custom_roles_join"."roled_id" = 9
+  [1m[36mCustomRole Load (0.2ms)[0m  [1mSELECT "custom_roles".* FROM "custom_roles" INNER JOIN "custom_roles_join" ON "custom_roles"."id" = "custom_roles_join"."role_id" WHERE "custom_roles_join"."roled_id" = 9 AND "custom_roles"."name" = 'admin' LIMIT 1[0m
+  [1m[35mCustomRole Load (0.1ms)[0m  SELECT "custom_roles".* FROM "custom_roles" WHERE "custom_roles"."name" = 'admin' LIMIT 1
+  [1m[36m (0.3ms)[0m  [1mINSERT INTO "custom_roles_join" ("roled_id", "role_id") VALUES (9, 12)[0m
+  [1m[35mCustomRole Load (0.2ms)[0m  SELECT "custom_roles".* FROM "custom_roles" INNER JOIN "custom_roles_join" ON "custom_roles"."id" = "custom_roles_join"."role_id" WHERE "custom_roles_join"."roled_id" = 9 AND "custom_roles"."name" = 'admin' LIMIT 1
+  [1m[36m (1.1ms)[0m  [1mDELETE FROM "users";[0m
+  [1m[35m (1.2ms)[0m  DELETE FROM "role_me_roles";
+  [1m[36m (1.2ms)[0m  [1mDELETE FROM "role_me_roles_join";[0m
+  [1m[35m (1.1ms)[0m  DELETE FROM "custom_roleds";
+  [1m[36m (1.9ms)[0m  [1mDELETE FROM "custom_roles";[0m
+  [1m[35m (1.3ms)[0m  DELETE FROM "custom_roles_join";
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "custom_roles" ("created_at", "name", "updated_at") VALUES (?, ?, ?)[0m  [["created_at", Wed, 12 Oct 2011 23:14:57 UTC +00:00], ["name", :admin], ["updated_at", Wed, 12 Oct 2011 23:14:57 UTC +00:00]]
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "custom_roleds" ("created_at", "updated_at") VALUES (?, ?)  [["created_at", Wed, 12 Oct 2011 23:14:57 UTC +00:00], ["updated_at", Wed, 12 Oct 2011 23:14:57 UTC +00:00]]
+  [1m[36mCustomRole Load (0.2ms)[0m  [1mSELECT "custom_roles".* FROM "custom_roles" INNER JOIN "custom_roles_join" ON "custom_roles"."id" = "custom_roles_join"."role_id" WHERE "custom_roles_join"."roled_id" = 10[0m
+  [1m[35mCustomRole Load (0.1ms)[0m  SELECT "custom_roles".* FROM "custom_roles" INNER JOIN "custom_roles_join" ON "custom_roles"."id" = "custom_roles_join"."role_id" WHERE "custom_roles_join"."roled_id" = 10 AND "custom_roles"."name" = 'guest' LIMIT 1
+  [1m[36mCustomRole Load (0.1ms)[0m  [1mSELECT "custom_roles".* FROM "custom_roles" WHERE "custom_roles"."name" = 'guest' LIMIT 1[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "custom_roles" ("created_at", "name", "updated_at") VALUES (?, ?, ?)  [["created_at", Wed, 12 Oct 2011 23:14:57 UTC +00:00], ["name", "guest"], ["updated_at", Wed, 12 Oct 2011 23:14:57 UTC +00:00]]
+  [1m[36m (0.2ms)[0m  [1mINSERT INTO "custom_roles_join" ("roled_id", "role_id") VALUES (10, 14)[0m
+  [1m[35mCustomRole Load (0.2ms)[0m  SELECT "custom_roles".* FROM "custom_roles" INNER JOIN "custom_roles_join" ON "custom_roles"."id" = "custom_roles_join"."role_id" WHERE "custom_roles_join"."roled_id" = 10 AND "custom_roles"."name" = 'guest' LIMIT 1
+  [1m[36m (1.1ms)[0m  [1mDELETE FROM "users";[0m
+  [1m[35m (1.5ms)[0m  DELETE FROM "role_me_roles";
+  [1m[36m (1.3ms)[0m  [1mDELETE FROM "role_me_roles_join";[0m
+  [1m[35m (1.4ms)[0m  DELETE FROM "custom_roleds";
+  [1m[36m (2.2ms)[0m  [1mDELETE FROM "custom_roles";[0m
+  [1m[35m (1.4ms)[0m  DELETE FROM "custom_roles_join";
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "custom_roles" ("created_at", "name", "updated_at") VALUES (?, ?, ?)[0m  [["created_at", Wed, 12 Oct 2011 23:14:57 UTC +00:00], ["name", :admin], ["updated_at", Wed, 12 Oct 2011 23:14:57 UTC +00:00]]
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "custom_roleds" ("created_at", "updated_at") VALUES (?, ?)  [["created_at", Wed, 12 Oct 2011 23:14:57 UTC +00:00], ["updated_at", Wed, 12 Oct 2011 23:14:57 UTC +00:00]]
+  [1m[36mCustomRole Load (0.2ms)[0m  [1mSELECT "custom_roles".* FROM "custom_roles" INNER JOIN "custom_roles_join" ON "custom_roles"."id" = "custom_roles_join"."role_id" WHERE "custom_roles_join"."roled_id" = 11 AND "custom_roles"."name" = 'admin' LIMIT 1[0m
+  [1m[35mCustomRole Load (0.1ms)[0m  SELECT "custom_roles".* FROM "custom_roles" WHERE "custom_roles"."name" = 'admin' LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mINSERT INTO "custom_roles_join" ("roled_id", "role_id") VALUES (11, 15)[0m
+  [1m[35mCustomRole Load (0.2ms)[0m  SELECT "custom_roles".* FROM "custom_roles" INNER JOIN "custom_roles_join" ON "custom_roles"."id" = "custom_roles_join"."role_id" WHERE "custom_roles_join"."roled_id" = 11 AND "custom_roles"."name" = 'admin' LIMIT 1
+  [1m[36m (1.2ms)[0m  [1mDELETE FROM "users";[0m
+  [1m[35m (2.0ms)[0m  DELETE FROM "role_me_roles";
+  [1m[36m (1.6ms)[0m  [1mDELETE FROM "role_me_roles_join";[0m
+  [1m[35m (1.4ms)[0m  DELETE FROM "custom_roleds";
+  [1m[36m (1.3ms)[0m  [1mDELETE FROM "custom_roles";[0m
+  [1m[35m (2.2ms)[0m  DELETE FROM "custom_roles_join";
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "custom_roles" ("created_at", "name", "updated_at") VALUES (?, ?, ?)[0m  [["created_at", Wed, 12 Oct 2011 23:14:57 UTC +00:00], ["name", :admin], ["updated_at", Wed, 12 Oct 2011 23:14:57 UTC +00:00]]
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "custom_roleds" ("created_at", "updated_at") VALUES (?, ?)  [["created_at", Wed, 12 Oct 2011 23:14:57 UTC +00:00], ["updated_at", Wed, 12 Oct 2011 23:14:57 UTC +00:00]]
+  [1m[36mCustomRole Load (0.2ms)[0m  [1mSELECT "custom_roles".* FROM "custom_roles" INNER JOIN "custom_roles_join" ON "custom_roles"."id" = "custom_roles_join"."role_id" WHERE "custom_roles_join"."roled_id" = 12 AND "custom_roles"."name" = 'admin' LIMIT 1[0m
+  [1m[35mCustomRole Load (0.1ms)[0m  SELECT "custom_roles".* FROM "custom_roles" WHERE "custom_roles"."name" = 'admin' LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mINSERT INTO "custom_roles_join" ("roled_id", "role_id") VALUES (12, 16)[0m
+  [1m[35mCustomRole Load (0.2ms)[0m  SELECT "custom_roles".* FROM "custom_roles" INNER JOIN "custom_roles_join" ON "custom_roles"."id" = "custom_roles_join"."role_id" WHERE "custom_roles_join"."roled_id" = 12 AND "custom_roles"."name" = 'admin' LIMIT 1
+  [1m[36mCustomRole Load (0.1ms)[0m  [1mSELECT "custom_roles".* FROM "custom_roles" INNER JOIN "custom_roles_join" ON "custom_roles"."id" = "custom_roles_join"."role_id" WHERE "custom_roles_join"."roled_id" = 12 AND "custom_roles"."name" = 'guest' LIMIT 1[0m
+  [1m[35mCustomRole Load (0.1ms)[0m  SELECT "custom_roles".* FROM "custom_roles" WHERE "custom_roles"."name" = 'guest' LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "custom_roles" ("created_at", "name", "updated_at") VALUES (?, ?, ?)[0m  [["created_at", Wed, 12 Oct 2011 23:14:57 UTC +00:00], ["name", "guest"], ["updated_at", Wed, 12 Oct 2011 23:14:57 UTC +00:00]]
+  [1m[35m (0.2ms)[0m  INSERT INTO "custom_roles_join" ("roled_id", "role_id") VALUES (12, 17)
+  [1m[36mCustomRole Load (0.2ms)[0m  [1mSELECT "custom_roles".* FROM "custom_roles" INNER JOIN "custom_roles_join" ON "custom_roles"."id" = "custom_roles_join"."role_id" WHERE "custom_roles_join"."roled_id" = 12 AND "custom_roles"."name" = 'guest' LIMIT 1[0m
+  [1m[35mCustomRole Load (0.1ms)[0m  SELECT "custom_roles".* FROM "custom_roles" INNER JOIN "custom_roles_join" ON "custom_roles"."id" = "custom_roles_join"."role_id" WHERE "custom_roles_join"."roled_id" = 12 AND "custom_roles"."name" = 'weird' LIMIT 1
+  [1m[36mCustomRole Load (0.1ms)[0m  [1mSELECT "custom_roles".* FROM "custom_roles" WHERE "custom_roles"."name" = 'weird' LIMIT 1[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "custom_roles" ("created_at", "name", "updated_at") VALUES (?, ?, ?)  [["created_at", Wed, 12 Oct 2011 23:14:57 UTC +00:00], ["name", "weird"], ["updated_at", Wed, 12 Oct 2011 23:14:57 UTC +00:00]]
+  [1m[36m (0.2ms)[0m  [1mINSERT INTO "custom_roles_join" ("roled_id", "role_id") VALUES (12, 18)[0m
+  [1m[35mCustomRole Load (0.2ms)[0m  SELECT "custom_roles".* FROM "custom_roles" INNER JOIN "custom_roles_join" ON "custom_roles"."id" = "custom_roles_join"."role_id" WHERE "custom_roles_join"."roled_id" = 12 AND "custom_roles"."name" = 'weird' LIMIT 1
+  [1m[36mCustomRole Load (0.1ms)[0m  [1mSELECT "custom_roles".* FROM "custom_roles" INNER JOIN "custom_roles_join" ON "custom_roles"."id" = "custom_roles_join"."role_id" WHERE "custom_roles_join"."roled_id" = 12[0m
+  [1m[35m (1.1ms)[0m  DELETE FROM "users";
+  [1m[36m (1.3ms)[0m  [1mDELETE FROM "role_me_roles";[0m
+  [1m[35m (1.4ms)[0m  DELETE FROM "role_me_roles_join";
+  [1m[36m (2.0ms)[0m  [1mDELETE FROM "custom_roleds";[0m
+  [1m[35m (1.4ms)[0m  DELETE FROM "custom_roles";
+  [1m[36m (1.5ms)[0m  [1mDELETE FROM "custom_roles_join";[0m
+  [1m[35m (1.1ms)[0m  DELETE FROM "users";
+  [1m[36m (1.4ms)[0m  [1mDELETE FROM "role_me_roles";[0m
+  [1m[35m (1.3ms)[0m  DELETE FROM "role_me_roles_join";
+  [1m[36m (1.2ms)[0m  [1mDELETE FROM "custom_roleds";[0m
+  [1m[35m (1.3ms)[0m  DELETE FROM "custom_roles";
+  [1m[36m (2.2ms)[0m  [1mDELETE FROM "custom_roles_join";[0m
+  [1m[35m (1.1ms)[0m  DELETE FROM "users";
+  [1m[36m (1.3ms)[0m  [1mDELETE FROM "role_me_roles";[0m
+  [1m[35m (1.3ms)[0m  DELETE FROM "role_me_roles_join";
+  [1m[36m (2.0ms)[0m  [1mDELETE FROM "custom_roleds";[0m
+  [1m[35m (1.7ms)[0m  DELETE FROM "custom_roles";
+  [1m[36m (1.6ms)[0m  [1mDELETE FROM "custom_roles_join";[0m
+  [1m[35mSQL (0.6ms)[0m  INSERT INTO "role_me_roles" ("created_at", "name", "updated_at") VALUES (?, ?, ?)  [["created_at", Wed, 12 Oct 2011 23:14:57 UTC +00:00], ["name", :admin], ["updated_at", Wed, 12 Oct 2011 23:14:57 UTC +00:00]]
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "users" ("created_at", "updated_at") VALUES (?, ?)[0m  [["created_at", Wed, 12 Oct 2011 23:14:57 UTC +00:00], ["updated_at", Wed, 12 Oct 2011 23:14:57 UTC +00:00]]
+  [1m[35mRoleMe::Role Load (0.2ms)[0m  SELECT "role_me_roles".* FROM "role_me_roles" INNER JOIN "role_me_roles_join" ON "role_me_roles"."id" = "role_me_roles_join"."role_id" WHERE "role_me_roles_join"."roled_id" = 67
+  [1m[36mRoleMe::Role Load (0.2ms)[0m  [1mSELECT "role_me_roles".* FROM "role_me_roles" INNER JOIN "role_me_roles_join" ON "role_me_roles"."id" = "role_me_roles_join"."role_id" WHERE "role_me_roles_join"."roled_id" = 67 AND "role_me_roles"."name" = 'admin' LIMIT 1[0m
+  [1m[35mRoleMe::Role Load (0.1ms)[0m  SELECT "role_me_roles".* FROM "role_me_roles" WHERE "role_me_roles"."name" = 'admin' LIMIT 1
+  [1m[36m (0.3ms)[0m  [1mINSERT INTO "role_me_roles_join" ("roled_id", "role_id") VALUES (67, 82)[0m
+  [1m[35mRoleMe::Role Load (0.2ms)[0m  SELECT "role_me_roles".* FROM "role_me_roles" INNER JOIN "role_me_roles_join" ON "role_me_roles"."id" = "role_me_roles_join"."role_id" WHERE "role_me_roles_join"."roled_id" = 67 AND "role_me_roles"."name" = 'admin' LIMIT 1
+  [1m[36m (1.1ms)[0m  [1mDELETE FROM "users";[0m
+  [1m[35m (1.4ms)[0m  DELETE FROM "role_me_roles";
+  [1m[36m (1.4ms)[0m  [1mDELETE FROM "role_me_roles_join";[0m
+  [1m[35m (1.3ms)[0m  DELETE FROM "custom_roleds";
+  [1m[36m (2.0ms)[0m  [1mDELETE FROM "custom_roles";[0m
+  [1m[35m (1.4ms)[0m  DELETE FROM "custom_roles_join";
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "role_me_roles" ("created_at", "name", "updated_at") VALUES (?, ?, ?)[0m  [["created_at", Wed, 12 Oct 2011 23:14:57 UTC +00:00], ["name", :admin], ["updated_at", Wed, 12 Oct 2011 23:14:57 UTC +00:00]]
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "users" ("created_at", "updated_at") VALUES (?, ?)  [["created_at", Wed, 12 Oct 2011 23:14:57 UTC +00:00], ["updated_at", Wed, 12 Oct 2011 23:14:57 UTC +00:00]]
+  [1m[36mRoleMe::Role Load (0.2ms)[0m  [1mSELECT "role_me_roles".* FROM "role_me_roles" INNER JOIN "role_me_roles_join" ON "role_me_roles"."id" = "role_me_roles_join"."role_id" WHERE "role_me_roles_join"."roled_id" = 68[0m
+  [1m[35mRoleMe::Role Load (0.1ms)[0m  SELECT "role_me_roles".* FROM "role_me_roles" INNER JOIN "role_me_roles_join" ON "role_me_roles"."id" = "role_me_roles_join"."role_id" WHERE "role_me_roles_join"."roled_id" = 68 AND "role_me_roles"."name" = 'guest' LIMIT 1
+  [1m[36mRoleMe::Role Load (0.1ms)[0m  [1mSELECT "role_me_roles".* FROM "role_me_roles" WHERE "role_me_roles"."name" = 'guest' LIMIT 1[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "role_me_roles" ("created_at", "name", "updated_at") VALUES (?, ?, ?)  [["created_at", Wed, 12 Oct 2011 23:14:57 UTC +00:00], ["name", "guest"], ["updated_at", Wed, 12 Oct 2011 23:14:57 UTC +00:00]]
+  [1m[36m (0.2ms)[0m  [1mINSERT INTO "role_me_roles_join" ("roled_id", "role_id") VALUES (68, 84)[0m
+  [1m[35mRoleMe::Role Load (0.2ms)[0m  SELECT "role_me_roles".* FROM "role_me_roles" INNER JOIN "role_me_roles_join" ON "role_me_roles"."id" = "role_me_roles_join"."role_id" WHERE "role_me_roles_join"."roled_id" = 68 AND "role_me_roles"."name" = 'guest' LIMIT 1
+  [1m[36m (1.1ms)[0m  [1mDELETE FROM "users";[0m
+  [1m[35m (1.5ms)[0m  DELETE FROM "role_me_roles";
+  [1m[36m (1.3ms)[0m  [1mDELETE FROM "role_me_roles_join";[0m
+  [1m[35m (1.4ms)[0m  DELETE FROM "custom_roleds";
+  [1m[36m (1.3ms)[0m  [1mDELETE FROM "custom_roles";[0m
+  [1m[35m (2.0ms)[0m  DELETE FROM "custom_roles_join";
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "role_me_roles" ("created_at", "name", "updated_at") VALUES (?, ?, ?)[0m  [["created_at", Wed, 12 Oct 2011 23:14:57 UTC +00:00], ["name", :admin], ["updated_at", Wed, 12 Oct 2011 23:14:57 UTC +00:00]]
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "users" ("created_at", "updated_at") VALUES (?, ?)  [["created_at", Wed, 12 Oct 2011 23:14:57 UTC +00:00], ["updated_at", Wed, 12 Oct 2011 23:14:57 UTC +00:00]]
+  [1m[36mRoleMe::Role Load (0.2ms)[0m  [1mSELECT "role_me_roles".* FROM "role_me_roles" INNER JOIN "role_me_roles_join" ON "role_me_roles"."id" = "role_me_roles_join"."role_id" WHERE "role_me_roles_join"."roled_id" = 69 AND "role_me_roles"."name" = 'admin' LIMIT 1[0m
+  [1m[35mRoleMe::Role Load (0.1ms)[0m  SELECT "role_me_roles".* FROM "role_me_roles" WHERE "role_me_roles"."name" = 'admin' LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mINSERT INTO "role_me_roles_join" ("roled_id", "role_id") VALUES (69, 85)[0m
+  [1m[35mRoleMe::Role Load (0.2ms)[0m  SELECT "role_me_roles".* FROM "role_me_roles" INNER JOIN "role_me_roles_join" ON "role_me_roles"."id" = "role_me_roles_join"."role_id" WHERE "role_me_roles_join"."roled_id" = 69 AND "role_me_roles"."name" = 'admin' LIMIT 1
+  [1m[36m (1.2ms)[0m  [1mDELETE FROM "users";[0m
+  [1m[35m (1.4ms)[0m  DELETE FROM "role_me_roles";
+  [1m[36m (2.0ms)[0m  [1mDELETE FROM "role_me_roles_join";[0m
+  [1m[35m (1.4ms)[0m  DELETE FROM "custom_roleds";
+  [1m[36m (1.4ms)[0m  [1mDELETE FROM "custom_roles";[0m
+  [1m[35m (1.4ms)[0m  DELETE FROM "custom_roles_join";
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "role_me_roles" ("created_at", "name", "updated_at") VALUES (?, ?, ?)[0m  [["created_at", Wed, 12 Oct 2011 23:14:57 UTC +00:00], ["name", :admin], ["updated_at", Wed, 12 Oct 2011 23:14:57 UTC +00:00]]
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "users" ("created_at", "updated_at") VALUES (?, ?)  [["created_at", Wed, 12 Oct 2011 23:14:57 UTC +00:00], ["updated_at", Wed, 12 Oct 2011 23:14:57 UTC +00:00]]
+  [1m[36mRoleMe::Role Load (0.2ms)[0m  [1mSELECT "role_me_roles".* FROM "role_me_roles" INNER JOIN "role_me_roles_join" ON "role_me_roles"."id" = "role_me_roles_join"."role_id" WHERE "role_me_roles_join"."roled_id" = 70 AND "role_me_roles"."name" = 'admin' LIMIT 1[0m
+  [1m[35mRoleMe::Role Load (0.1ms)[0m  SELECT "role_me_roles".* FROM "role_me_roles" WHERE "role_me_roles"."name" = 'admin' LIMIT 1
+  [1m[36m (0.3ms)[0m  [1mINSERT INTO "role_me_roles_join" ("roled_id", "role_id") VALUES (70, 86)[0m
+  [1m[35mRoleMe::Role Load (0.2ms)[0m  SELECT "role_me_roles".* FROM "role_me_roles" INNER JOIN "role_me_roles_join" ON "role_me_roles"."id" = "role_me_roles_join"."role_id" WHERE "role_me_roles_join"."roled_id" = 70 AND "role_me_roles"."name" = 'admin' LIMIT 1
+  [1m[36mRoleMe::Role Load (0.1ms)[0m  [1mSELECT "role_me_roles".* FROM "role_me_roles" INNER JOIN "role_me_roles_join" ON "role_me_roles"."id" = "role_me_roles_join"."role_id" WHERE "role_me_roles_join"."roled_id" = 70 AND "role_me_roles"."name" = 'guest' LIMIT 1[0m
+  [1m[35mRoleMe::Role Load (0.1ms)[0m  SELECT "role_me_roles".* FROM "role_me_roles" WHERE "role_me_roles"."name" = 'guest' LIMIT 1
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "role_me_roles" ("created_at", "name", "updated_at") VALUES (?, ?, ?)[0m  [["created_at", Wed, 12 Oct 2011 23:14:57 UTC +00:00], ["name", "guest"], ["updated_at", Wed, 12 Oct 2011 23:14:57 UTC +00:00]]
+  [1m[35m (0.3ms)[0m  INSERT INTO "role_me_roles_join" ("roled_id", "role_id") VALUES (70, 87)
+  [1m[36mRoleMe::Role Load (0.2ms)[0m  [1mSELECT "role_me_roles".* FROM "role_me_roles" INNER JOIN "role_me_roles_join" ON "role_me_roles"."id" = "role_me_roles_join"."role_id" WHERE "role_me_roles_join"."roled_id" = 70 AND "role_me_roles"."name" = 'guest' LIMIT 1[0m
+  [1m[35mRoleMe::Role Load (0.2ms)[0m  SELECT "role_me_roles".* FROM "role_me_roles" INNER JOIN "role_me_roles_join" ON "role_me_roles"."id" = "role_me_roles_join"."role_id" WHERE "role_me_roles_join"."roled_id" = 70 AND "role_me_roles"."name" = 'weird' LIMIT 1
+  [1m[36mRoleMe::Role Load (0.1ms)[0m  [1mSELECT "role_me_roles".* FROM "role_me_roles" WHERE "role_me_roles"."name" = 'weird' LIMIT 1[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "role_me_roles" ("created_at", "name", "updated_at") VALUES (?, ?, ?)  [["created_at", Wed, 12 Oct 2011 23:14:57 UTC +00:00], ["name", "weird"], ["updated_at", Wed, 12 Oct 2011 23:14:57 UTC +00:00]]
+  [1m[36m (0.3ms)[0m  [1mINSERT INTO "role_me_roles_join" ("roled_id", "role_id") VALUES (70, 88)[0m
+  [1m[35mRoleMe::Role Load (0.2ms)[0m  SELECT "role_me_roles".* FROM "role_me_roles" INNER JOIN "role_me_roles_join" ON "role_me_roles"."id" = "role_me_roles_join"."role_id" WHERE "role_me_roles_join"."roled_id" = 70 AND "role_me_roles"."name" = 'weird' LIMIT 1
+  [1m[36mRoleMe::Role Load (0.3ms)[0m  [1mSELECT "role_me_roles".* FROM "role_me_roles" INNER JOIN "role_me_roles_join" ON "role_me_roles"."id" = "role_me_roles_join"."role_id" WHERE "role_me_roles_join"."roled_id" = 70[0m
+  [1m[36m (0.1ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations" [0m
+Migrating to CreateUsers (20111012184816)
+Migrating to CreateRoleMeRoles (20111012220750)
+Migrating to CreateRoleMeRolesJoin (20111012220751)
+Migrating to CreateCustomRoleds (20111012225648)
+Migrating to CreateCustomRoles (20111012225705)
+Migrating to CustomRolesJoin (20111012225822)
+  [1m[35m (1.2ms)[0m  DELETE FROM "users";
+  [1m[36m (1.3ms)[0m  [1mDELETE FROM "role_me_roles";[0m
+  [1m[35m (1.3ms)[0m  DELETE FROM "role_me_roles_join";
+  [1m[36m (1.3ms)[0m  [1mDELETE FROM "custom_roleds";[0m
+  [1m[35m (1.3ms)[0m  DELETE FROM "custom_roles";
+  [1m[36m (1.3ms)[0m  [1mDELETE FROM "custom_roles_join";[0m
+  [1m[35m (1.1ms)[0m  DELETE FROM "users";
+  [1m[36m (1.2ms)[0m  [1mDELETE FROM "role_me_roles";[0m
+  [1m[35m (1.2ms)[0m  DELETE FROM "role_me_roles_join";
+  [1m[36m (1.2ms)[0m  [1mDELETE FROM "custom_roleds";[0m
+  [1m[35m (1.3ms)[0m  DELETE FROM "custom_roles";
+  [1m[36m (1.3ms)[0m  [1mDELETE FROM "custom_roles_join";[0m
+  [1m[35m (1.2ms)[0m  DELETE FROM "users";
+  [1m[36m (1.4ms)[0m  [1mDELETE FROM "role_me_roles";[0m
+  [1m[35m (1.3ms)[0m  DELETE FROM "role_me_roles_join";
+  [1m[36m (1.3ms)[0m  [1mDELETE FROM "custom_roleds";[0m
+  [1m[35m (1.3ms)[0m  DELETE FROM "custom_roles";
+  [1m[36m (1.3ms)[0m  [1mDELETE FROM "custom_roles_join";[0m
+  [1m[35mSQL (20.1ms)[0m  INSERT INTO "custom_roles" ("created_at", "name", "updated_at") VALUES (?, ?, ?)  [["created_at", Wed, 12 Oct 2011 23:23:00 UTC +00:00], ["name", :admin], ["updated_at", Wed, 12 Oct 2011 23:23:00 UTC +00:00]]
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "custom_roleds" ("created_at", "updated_at") VALUES (?, ?)[0m  [["created_at", Wed, 12 Oct 2011 23:23:00 UTC +00:00], ["updated_at", Wed, 12 Oct 2011 23:23:00 UTC +00:00]]
+  [1m[35mCustomRole Load (0.2ms)[0m  SELECT "custom_roles".* FROM "custom_roles" INNER JOIN "custom_roles_join" ON "custom_roles"."id" = "custom_roles_join"."role_id" WHERE "custom_roles_join"."roled_id" = 13
+  [1m[36mCustomRole Load (0.3ms)[0m  [1mSELECT "custom_roles".* FROM "custom_roles" INNER JOIN "custom_roles_join" ON "custom_roles"."id" = "custom_roles_join"."role_id" WHERE "custom_roles_join"."roled_id" = 13 AND "custom_roles"."name" = 'admin' LIMIT 1[0m
+  [1m[35mCustomRole Load (0.2ms)[0m  SELECT "custom_roles".* FROM "custom_roles" WHERE "custom_roles"."name" = 'admin' LIMIT 1
+  [1m[36m (0.3ms)[0m  [1mINSERT INTO "custom_roles_join" ("roled_id", "role_id") VALUES (13, 19)[0m
+  [1m[35mCustomRole Load (0.3ms)[0m  SELECT "custom_roles".* FROM "custom_roles" INNER JOIN "custom_roles_join" ON "custom_roles"."id" = "custom_roles_join"."role_id" WHERE "custom_roles_join"."roled_id" = 13 AND "custom_roles"."name" = 'admin' LIMIT 1
+  [1m[36m (1.1ms)[0m  [1mDELETE FROM "users";[0m
+  [1m[35m (1.3ms)[0m  DELETE FROM "role_me_roles";
+  [1m[36m (1.3ms)[0m  [1mDELETE FROM "role_me_roles_join";[0m
+  [1m[35m (2.1ms)[0m  DELETE FROM "custom_roleds";
+  [1m[36m (1.3ms)[0m  [1mDELETE FROM "custom_roles";[0m
+  [1m[35m (1.3ms)[0m  DELETE FROM "custom_roles_join";
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "custom_roles" ("created_at", "name", "updated_at") VALUES (?, ?, ?)[0m  [["created_at", Wed, 12 Oct 2011 23:23:01 UTC +00:00], ["name", :admin], ["updated_at", Wed, 12 Oct 2011 23:23:01 UTC +00:00]]
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "custom_roleds" ("created_at", "updated_at") VALUES (?, ?)  [["created_at", Wed, 12 Oct 2011 23:23:00 UTC +00:00], ["updated_at", Wed, 12 Oct 2011 23:23:01 UTC +00:00]]
+  [1m[36mCustomRole Load (0.2ms)[0m  [1mSELECT "custom_roles".* FROM "custom_roles" INNER JOIN "custom_roles_join" ON "custom_roles"."id" = "custom_roles_join"."role_id" WHERE "custom_roles_join"."roled_id" = 14[0m
+  [1m[35mCustomRole Load (0.1ms)[0m  SELECT "custom_roles".* FROM "custom_roles" INNER JOIN "custom_roles_join" ON "custom_roles"."id" = "custom_roles_join"."role_id" WHERE "custom_roles_join"."roled_id" = 14 AND "custom_roles"."name" = 'guest' LIMIT 1
+  [1m[36mCustomRole Load (0.1ms)[0m  [1mSELECT "custom_roles".* FROM "custom_roles" WHERE "custom_roles"."name" = 'guest' LIMIT 1[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "custom_roles" ("created_at", "name", "updated_at") VALUES (?, ?, ?)  [["created_at", Wed, 12 Oct 2011 23:23:01 UTC +00:00], ["name", "guest"], ["updated_at", Wed, 12 Oct 2011 23:23:01 UTC +00:00]]
+  [1m[36m (0.2ms)[0m  [1mINSERT INTO "custom_roles_join" ("roled_id", "role_id") VALUES (14, 21)[0m
+  [1m[35mCustomRole Load (0.2ms)[0m  SELECT "custom_roles".* FROM "custom_roles" INNER JOIN "custom_roles_join" ON "custom_roles"."id" = "custom_roles_join"."role_id" WHERE "custom_roles_join"."roled_id" = 14 AND "custom_roles"."name" = 'guest' LIMIT 1
+  [1m[36m (1.6ms)[0m  [1mDELETE FROM "users";[0m
+  [1m[35m (1.3ms)[0m  DELETE FROM "role_me_roles";
+  [1m[36m (1.3ms)[0m  [1mDELETE FROM "role_me_roles_join";[0m
+  [1m[35m (1.6ms)[0m  DELETE FROM "custom_roleds";
+  [1m[36m (1.5ms)[0m  [1mDELETE FROM "custom_roles";[0m
+  [1m[35m (1.7ms)[0m  DELETE FROM "custom_roles_join";
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "custom_roles" ("created_at", "name", "updated_at") VALUES (?, ?, ?)[0m  [["created_at", Wed, 12 Oct 2011 23:23:01 UTC +00:00], ["name", :admin], ["updated_at", Wed, 12 Oct 2011 23:23:01 UTC +00:00]]
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "custom_roleds" ("created_at", "updated_at") VALUES (?, ?)  [["created_at", Wed, 12 Oct 2011 23:23:00 UTC +00:00], ["updated_at", Wed, 12 Oct 2011 23:23:01 UTC +00:00]]
+  [1m[36mCustomRole Load (0.2ms)[0m  [1mSELECT "custom_roles".* FROM "custom_roles" INNER JOIN "custom_roles_join" ON "custom_roles"."id" = "custom_roles_join"."role_id" WHERE "custom_roles_join"."roled_id" = 15 AND "custom_roles"."name" = 'admin' LIMIT 1[0m
+  [1m[35mCustomRole Load (0.1ms)[0m  SELECT "custom_roles".* FROM "custom_roles" WHERE "custom_roles"."name" = 'admin' LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mINSERT INTO "custom_roles_join" ("roled_id", "role_id") VALUES (15, 22)[0m
+  [1m[35mCustomRole Load (0.2ms)[0m  SELECT "custom_roles".* FROM "custom_roles" INNER JOIN "custom_roles_join" ON "custom_roles"."id" = "custom_roles_join"."role_id" WHERE "custom_roles_join"."roled_id" = 15 AND "custom_roles"."name" = 'admin' LIMIT 1
+  [1m[36m (1.2ms)[0m  [1mDELETE FROM "users";[0m
+  [1m[35m (1.4ms)[0m  DELETE FROM "role_me_roles";
+  [1m[36m (1.9ms)[0m  [1mDELETE FROM "role_me_roles_join";[0m
+  [1m[35m (1.5ms)[0m  DELETE FROM "custom_roleds";
+  [1m[36m (1.3ms)[0m  [1mDELETE FROM "custom_roles";[0m
+  [1m[35m (2.2ms)[0m  DELETE FROM "custom_roles_join";
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "custom_roles" ("created_at", "name", "updated_at") VALUES (?, ?, ?)[0m  [["created_at", Wed, 12 Oct 2011 23:23:01 UTC +00:00], ["name", :admin], ["updated_at", Wed, 12 Oct 2011 23:23:01 UTC +00:00]]
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "custom_roleds" ("created_at", "updated_at") VALUES (?, ?)  [["created_at", Wed, 12 Oct 2011 23:23:00 UTC +00:00], ["updated_at", Wed, 12 Oct 2011 23:23:01 UTC +00:00]]
+  [1m[36mCustomRole Load (0.2ms)[0m  [1mSELECT "custom_roles".* FROM "custom_roles" INNER JOIN "custom_roles_join" ON "custom_roles"."id" = "custom_roles_join"."role_id" WHERE "custom_roles_join"."roled_id" = 16 AND "custom_roles"."name" = 'admin' LIMIT 1[0m
+  [1m[35mCustomRole Load (0.1ms)[0m  SELECT "custom_roles".* FROM "custom_roles" WHERE "custom_roles"."name" = 'admin' LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mINSERT INTO "custom_roles_join" ("roled_id", "role_id") VALUES (16, 23)[0m
+  [1m[35mCustomRole Load (0.2ms)[0m  SELECT "custom_roles".* FROM "custom_roles" INNER JOIN "custom_roles_join" ON "custom_roles"."id" = "custom_roles_join"."role_id" WHERE "custom_roles_join"."roled_id" = 16 AND "custom_roles"."name" = 'admin' LIMIT 1
+  [1m[36mCustomRole Load (0.2ms)[0m  [1mSELECT "custom_roles".* FROM "custom_roles" INNER JOIN "custom_roles_join" ON "custom_roles"."id" = "custom_roles_join"."role_id" WHERE "custom_roles_join"."roled_id" = 16 AND "custom_roles"."name" = 'guest' LIMIT 1[0m
+  [1m[35mCustomRole Load (0.1ms)[0m  SELECT "custom_roles".* FROM "custom_roles" WHERE "custom_roles"."name" = 'guest' LIMIT 1
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "custom_roles" ("created_at", "name", "updated_at") VALUES (?, ?, ?)[0m  [["created_at", Wed, 12 Oct 2011 23:23:01 UTC +00:00], ["name", "guest"], ["updated_at", Wed, 12 Oct 2011 23:23:01 UTC +00:00]]
+  [1m[35m (0.3ms)[0m  INSERT INTO "custom_roles_join" ("roled_id", "role_id") VALUES (16, 24)
+  [1m[36mCustomRole Load (0.2ms)[0m  [1mSELECT "custom_roles".* FROM "custom_roles" INNER JOIN "custom_roles_join" ON "custom_roles"."id" = "custom_roles_join"."role_id" WHERE "custom_roles_join"."roled_id" = 16 AND "custom_roles"."name" = 'guest' LIMIT 1[0m
+  [1m[35mCustomRole Load (0.1ms)[0m  SELECT "custom_roles".* FROM "custom_roles" INNER JOIN "custom_roles_join" ON "custom_roles"."id" = "custom_roles_join"."role_id" WHERE "custom_roles_join"."roled_id" = 16 AND "custom_roles"."name" = 'weird' LIMIT 1
+  [1m[36mCustomRole Load (0.1ms)[0m  [1mSELECT "custom_roles".* FROM "custom_roles" WHERE "custom_roles"."name" = 'weird' LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "custom_roles" ("created_at", "name", "updated_at") VALUES (?, ?, ?)  [["created_at", Wed, 12 Oct 2011 23:23:01 UTC +00:00], ["name", "weird"], ["updated_at", Wed, 12 Oct 2011 23:23:01 UTC +00:00]]
+  [1m[36m (0.2ms)[0m  [1mINSERT INTO "custom_roles_join" ("roled_id", "role_id") VALUES (16, 25)[0m
+  [1m[35mCustomRole Load (0.2ms)[0m  SELECT "custom_roles".* FROM "custom_roles" INNER JOIN "custom_roles_join" ON "custom_roles"."id" = "custom_roles_join"."role_id" WHERE "custom_roles_join"."roled_id" = 16 AND "custom_roles"."name" = 'weird' LIMIT 1
+  [1m[36mCustomRole Load (0.2ms)[0m  [1mSELECT "custom_roles".* FROM "custom_roles" INNER JOIN "custom_roles_join" ON "custom_roles"."id" = "custom_roles_join"."role_id" WHERE "custom_roles_join"."roled_id" = 16[0m
+  [1m[35m (1.3ms)[0m  DELETE FROM "users";
+  [1m[36m (1.5ms)[0m  [1mDELETE FROM "role_me_roles";[0m
+  [1m[35m (28.4ms)[0m  DELETE FROM "role_me_roles_join";
+  [1m[36m (12.4ms)[0m  [1mDELETE FROM "custom_roleds";[0m
+  [1m[35m (1.5ms)[0m  DELETE FROM "custom_roles";
+  [1m[36m (1.5ms)[0m  [1mDELETE FROM "custom_roles_join";[0m
+  [1m[35m (1.2ms)[0m  DELETE FROM "users";
+  [1m[36m (1.5ms)[0m  [1mDELETE FROM "role_me_roles";[0m
+  [1m[35m (1.4ms)[0m  DELETE FROM "role_me_roles_join";
+  [1m[36m (1.4ms)[0m  [1mDELETE FROM "custom_roleds";[0m
+  [1m[35m (1.3ms)[0m  DELETE FROM "custom_roles";
+  [1m[36m (1.4ms)[0m  [1mDELETE FROM "custom_roles_join";[0m
+  [1m[35m (2.8ms)[0m  DELETE FROM "users";
+  [1m[36m (1.3ms)[0m  [1mDELETE FROM "role_me_roles";[0m
+  [1m[35m (1.4ms)[0m  DELETE FROM "role_me_roles_join";
+  [1m[36m (1.5ms)[0m  [1mDELETE FROM "custom_roleds";[0m
+  [1m[35m (1.3ms)[0m  DELETE FROM "custom_roles";
+  [1m[36m (2.0ms)[0m  [1mDELETE FROM "custom_roles_join";[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "role_me_roles" ("created_at", "name", "updated_at") VALUES (?, ?, ?)  [["created_at", Wed, 12 Oct 2011 23:23:01 UTC +00:00], ["name", :admin], ["updated_at", Wed, 12 Oct 2011 23:23:01 UTC +00:00]]
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "users" ("created_at", "updated_at") VALUES (?, ?)[0m  [["created_at", Wed, 12 Oct 2011 23:23:00 UTC +00:00], ["updated_at", Wed, 12 Oct 2011 23:23:01 UTC +00:00]]
+  [1m[35mRoleMe::Role Load (0.2ms)[0m  SELECT "role_me_roles".* FROM "role_me_roles" INNER JOIN "role_me_roles_join" ON "role_me_roles"."id" = "role_me_roles_join"."role_id" WHERE "role_me_roles_join"."roled_id" = 71
+  [1m[36mRoleMe::Role Load (0.2ms)[0m  [1mSELECT "role_me_roles".* FROM "role_me_roles" INNER JOIN "role_me_roles_join" ON "role_me_roles"."id" = "role_me_roles_join"."role_id" WHERE "role_me_roles_join"."roled_id" = 71 AND "role_me_roles"."name" = 'admin' LIMIT 1[0m
+  [1m[35mRoleMe::Role Load (0.1ms)[0m  SELECT "role_me_roles".* FROM "role_me_roles" WHERE "role_me_roles"."name" = 'admin' LIMIT 1
+  [1m[36m (0.3ms)[0m  [1mINSERT INTO "role_me_roles_join" ("roled_id", "role_id") VALUES (71, 89)[0m
+  [1m[35mRoleMe::Role Load (0.2ms)[0m  SELECT "role_me_roles".* FROM "role_me_roles" INNER JOIN "role_me_roles_join" ON "role_me_roles"."id" = "role_me_roles_join"."role_id" WHERE "role_me_roles_join"."roled_id" = 71 AND "role_me_roles"."name" = 'admin' LIMIT 1
+  [1m[36m (1.2ms)[0m  [1mDELETE FROM "users";[0m
+  [1m[35m (1.3ms)[0m  DELETE FROM "role_me_roles";
+  [1m[36m (1.3ms)[0m  [1mDELETE FROM "role_me_roles_join";[0m
+  [1m[35m (1.3ms)[0m  DELETE FROM "custom_roleds";
+  [1m[36m (1.7ms)[0m  [1mDELETE FROM "custom_roles";[0m
+  [1m[35m (1.8ms)[0m  DELETE FROM "custom_roles_join";
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "role_me_roles" ("created_at", "name", "updated_at") VALUES (?, ?, ?)[0m  [["created_at", Wed, 12 Oct 2011 23:23:01 UTC +00:00], ["name", :admin], ["updated_at", Wed, 12 Oct 2011 23:23:01 UTC +00:00]]
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "users" ("created_at", "updated_at") VALUES (?, ?)  [["created_at", Wed, 12 Oct 2011 23:23:00 UTC +00:00], ["updated_at", Wed, 12 Oct 2011 23:23:01 UTC +00:00]]
+  [1m[36mRoleMe::Role Load (0.2ms)[0m  [1mSELECT "role_me_roles".* FROM "role_me_roles" INNER JOIN "role_me_roles_join" ON "role_me_roles"."id" = "role_me_roles_join"."role_id" WHERE "role_me_roles_join"."roled_id" = 72[0m
+  [1m[35mRoleMe::Role Load (0.2ms)[0m  SELECT "role_me_roles".* FROM "role_me_roles" INNER JOIN "role_me_roles_join" ON "role_me_roles"."id" = "role_me_roles_join"."role_id" WHERE "role_me_roles_join"."roled_id" = 72 AND "role_me_roles"."name" = 'guest' LIMIT 1
+  [1m[36mRoleMe::Role Load (0.1ms)[0m  [1mSELECT "role_me_roles".* FROM "role_me_roles" WHERE "role_me_roles"."name" = 'guest' LIMIT 1[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "role_me_roles" ("created_at", "name", "updated_at") VALUES (?, ?, ?)  [["created_at", Wed, 12 Oct 2011 23:23:01 UTC +00:00], ["name", "guest"], ["updated_at", Wed, 12 Oct 2011 23:23:01 UTC +00:00]]
+  [1m[36m (0.2ms)[0m  [1mINSERT INTO "role_me_roles_join" ("roled_id", "role_id") VALUES (72, 91)[0m
+  [1m[35mRoleMe::Role Load (0.2ms)[0m  SELECT "role_me_roles".* FROM "role_me_roles" INNER JOIN "role_me_roles_join" ON "role_me_roles"."id" = "role_me_roles_join"."role_id" WHERE "role_me_roles_join"."roled_id" = 72 AND "role_me_roles"."name" = 'guest' LIMIT 1
+  [1m[36m (2.1ms)[0m  [1mDELETE FROM "users";[0m
+  [1m[35m (1.4ms)[0m  DELETE FROM "role_me_roles";
+  [1m[36m (1.4ms)[0m  [1mDELETE FROM "role_me_roles_join";[0m
+  [1m[35m (1.4ms)[0m  DELETE FROM "custom_roleds";
+  [1m[36m (1.5ms)[0m  [1mDELETE FROM "custom_roles";[0m
+  [1m[35m (1.9ms)[0m  DELETE FROM "custom_roles_join";
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "role_me_roles" ("created_at", "name", "updated_at") VALUES (?, ?, ?)[0m  [["created_at", Wed, 12 Oct 2011 23:23:01 UTC +00:00], ["name", :admin], ["updated_at", Wed, 12 Oct 2011 23:23:01 UTC +00:00]]
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "users" ("created_at", "updated_at") VALUES (?, ?)  [["created_at", Wed, 12 Oct 2011 23:23:00 UTC +00:00], ["updated_at", Wed, 12 Oct 2011 23:23:01 UTC +00:00]]
+  [1m[36mRoleMe::Role Load (0.2ms)[0m  [1mSELECT "role_me_roles".* FROM "role_me_roles" INNER JOIN "role_me_roles_join" ON "role_me_roles"."id" = "role_me_roles_join"."role_id" WHERE "role_me_roles_join"."roled_id" = 73 AND "role_me_roles"."name" = 'admin' LIMIT 1[0m
+  [1m[35mRoleMe::Role Load (0.2ms)[0m  SELECT "role_me_roles".* FROM "role_me_roles" WHERE "role_me_roles"."name" = 'admin' LIMIT 1
+  [1m[36m (0.3ms)[0m  [1mINSERT INTO "role_me_roles_join" ("roled_id", "role_id") VALUES (73, 92)[0m
+  [1m[35mRoleMe::Role Load (0.2ms)[0m  SELECT "role_me_roles".* FROM "role_me_roles" INNER JOIN "role_me_roles_join" ON "role_me_roles"."id" = "role_me_roles_join"."role_id" WHERE "role_me_roles_join"."roled_id" = 73 AND "role_me_roles"."name" = 'admin' LIMIT 1
+  [1m[36m (1.1ms)[0m  [1mDELETE FROM "users";[0m
+  [1m[35m (1.4ms)[0m  DELETE FROM "role_me_roles";
+  [1m[36m (1.9ms)[0m  [1mDELETE FROM "role_me_roles_join";[0m
+  [1m[35m (1.5ms)[0m  DELETE FROM "custom_roleds";
+  [1m[36m (1.4ms)[0m  [1mDELETE FROM "custom_roles";[0m
+  [1m[35m (1.4ms)[0m  DELETE FROM "custom_roles_join";
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "role_me_roles" ("created_at", "name", "updated_at") VALUES (?, ?, ?)[0m  [["created_at", Wed, 12 Oct 2011 23:23:01 UTC +00:00], ["name", :admin], ["updated_at", Wed, 12 Oct 2011 23:23:01 UTC +00:00]]
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "users" ("created_at", "updated_at") VALUES (?, ?)  [["created_at", Wed, 12 Oct 2011 23:23:00 UTC +00:00], ["updated_at", Wed, 12 Oct 2011 23:23:01 UTC +00:00]]
+  [1m[36mRoleMe::Role Load (0.2ms)[0m  [1mSELECT "role_me_roles".* FROM "role_me_roles" INNER JOIN "role_me_roles_join" ON "role_me_roles"."id" = "role_me_roles_join"."role_id" WHERE "role_me_roles_join"."roled_id" = 74 AND "role_me_roles"."name" = 'admin' LIMIT 1[0m
+  [1m[35mRoleMe::Role Load (0.1ms)[0m  SELECT "role_me_roles".* FROM "role_me_roles" WHERE "role_me_roles"."name" = 'admin' LIMIT 1
+  [1m[36m (0.3ms)[0m  [1mINSERT INTO "role_me_roles_join" ("roled_id", "role_id") VALUES (74, 93)[0m
+  [1m[35mRoleMe::Role Load (0.2ms)[0m  SELECT "role_me_roles".* FROM "role_me_roles" INNER JOIN "role_me_roles_join" ON "role_me_roles"."id" = "role_me_roles_join"."role_id" WHERE "role_me_roles_join"."roled_id" = 74 AND "role_me_roles"."name" = 'admin' LIMIT 1
+  [1m[36mRoleMe::Role Load (0.1ms)[0m  [1mSELECT "role_me_roles".* FROM "role_me_roles" INNER JOIN "role_me_roles_join" ON "role_me_roles"."id" = "role_me_roles_join"."role_id" WHERE "role_me_roles_join"."roled_id" = 74 AND "role_me_roles"."name" = 'guest' LIMIT 1[0m
+  [1m[35mRoleMe::Role Load (0.1ms)[0m  SELECT "role_me_roles".* FROM "role_me_roles" WHERE "role_me_roles"."name" = 'guest' LIMIT 1
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "role_me_roles" ("created_at", "name", "updated_at") VALUES (?, ?, ?)[0m  [["created_at", Wed, 12 Oct 2011 23:23:01 UTC +00:00], ["name", "guest"], ["updated_at", Wed, 12 Oct 2011 23:23:01 UTC +00:00]]
+  [1m[35m (0.3ms)[0m  INSERT INTO "role_me_roles_join" ("roled_id", "role_id") VALUES (74, 94)
+  [1m[36mRoleMe::Role Load (0.2ms)[0m  [1mSELECT "role_me_roles".* FROM "role_me_roles" INNER JOIN "role_me_roles_join" ON "role_me_roles"."id" = "role_me_roles_join"."role_id" WHERE "role_me_roles_join"."roled_id" = 74 AND "role_me_roles"."name" = 'guest' LIMIT 1[0m
+  [1m[35mRoleMe::Role Load (0.1ms)[0m  SELECT "role_me_roles".* FROM "role_me_roles" INNER JOIN "role_me_roles_join" ON "role_me_roles"."id" = "role_me_roles_join"."role_id" WHERE "role_me_roles_join"."roled_id" = 74 AND "role_me_roles"."name" = 'weird' LIMIT 1
+  [1m[36mRoleMe::Role Load (0.1ms)[0m  [1mSELECT "role_me_roles".* FROM "role_me_roles" WHERE "role_me_roles"."name" = 'weird' LIMIT 1[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "role_me_roles" ("created_at", "name", "updated_at") VALUES (?, ?, ?)  [["created_at", Wed, 12 Oct 2011 23:23:01 UTC +00:00], ["name", "weird"], ["updated_at", Wed, 12 Oct 2011 23:23:01 UTC +00:00]]
+  [1m[36m (0.2ms)[0m  [1mINSERT INTO "role_me_roles_join" ("roled_id", "role_id") VALUES (74, 95)[0m
+  [1m[35mRoleMe::Role Load (0.3ms)[0m  SELECT "role_me_roles".* FROM "role_me_roles" INNER JOIN "role_me_roles_join" ON "role_me_roles"."id" = "role_me_roles_join"."role_id" WHERE "role_me_roles_join"."roled_id" = 74 AND "role_me_roles"."name" = 'weird' LIMIT 1
+  [1m[36mRoleMe::Role Load (0.2ms)[0m  [1mSELECT "role_me_roles".* FROM "role_me_roles" INNER JOIN "role_me_roles_join" ON "role_me_roles"."id" = "role_me_roles_join"."role_id" WHERE "role_me_roles_join"."roled_id" = 74[0m
+  [1m[36m (0.1ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations" [0m
+Migrating to CreateUsers (20111012184816)
+Migrating to CreateRoleMeRoles (20111012220750)
+Migrating to CreateRoleMeRolesJoin (20111012220751)
+Migrating to CreateCustomRoleds (20111012225648)
+Migrating to CreateCustomRoles (20111012225705)
+Migrating to CustomRolesJoin (20111012225822)
+  [1m[35m (1.5ms)[0m  DELETE FROM "users";
+  [1m[36m (1.3ms)[0m  [1mDELETE FROM "role_me_roles";[0m
+  [1m[35m (1.3ms)[0m  DELETE FROM "role_me_roles_join";
+  [1m[36m (1.2ms)[0m  [1mDELETE FROM "custom_roleds";[0m
+  [1m[35m (1.2ms)[0m  DELETE FROM "custom_roles";
+  [1m[36m (1.3ms)[0m  [1mDELETE FROM "custom_roles_join";[0m
+  [1m[35m (1.3ms)[0m  DELETE FROM "users";
+  [1m[36m (1.4ms)[0m  [1mDELETE FROM "role_me_roles";[0m
+  [1m[35m (1.3ms)[0m  DELETE FROM "role_me_roles_join";
+  [1m[36m (1.3ms)[0m  [1mDELETE FROM "custom_roleds";[0m
+  [1m[35m (1.3ms)[0m  DELETE FROM "custom_roles";
+  [1m[36m (1.3ms)[0m  [1mDELETE FROM "custom_roles_join";[0m
+  [1m[35m (2.3ms)[0m  DELETE FROM "users";
+  [1m[36m (1.3ms)[0m  [1mDELETE FROM "role_me_roles";[0m
+  [1m[35m (1.3ms)[0m  DELETE FROM "role_me_roles_join";
+  [1m[36m (1.3ms)[0m  [1mDELETE FROM "custom_roleds";[0m
+  [1m[35m (1.3ms)[0m  DELETE FROM "custom_roles";
+  [1m[36m (1.4ms)[0m  [1mDELETE FROM "custom_roles_join";[0m
+  [1m[35mSQL (21.1ms)[0m  INSERT INTO "custom_roles" ("created_at", "name", "updated_at") VALUES (?, ?, ?)  [["created_at", Wed, 12 Oct 2011 23:23:38 UTC +00:00], ["name", :admin], ["updated_at", Wed, 12 Oct 2011 23:23:38 UTC +00:00]]
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "custom_roleds" ("created_at", "updated_at") VALUES (?, ?)[0m  [["created_at", Wed, 12 Oct 2011 23:23:37 UTC +00:00], ["updated_at", Wed, 12 Oct 2011 23:23:38 UTC +00:00]]
+  [1m[35mCustomRole Load (0.2ms)[0m  SELECT "custom_roles".* FROM "custom_roles" INNER JOIN "custom_roles_join" ON "custom_roles"."id" = "custom_roles_join"."role_id" WHERE "custom_roles_join"."roled_id" = 17
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(count_column) FROM (SELECT 1 AS count_column FROM "custom_roles" INNER JOIN "custom_roles_join" ON "custom_roles"."id" = "custom_roles_join"."role_id" WHERE "custom_roles_join"."roled_id" = 17 AND "custom_roles"."name" = 'admin' LIMIT 1) subquery_for_count [0m
+  [1m[35mCustomRole Load (0.1ms)[0m  SELECT "custom_roles".* FROM "custom_roles" WHERE "custom_roles"."name" = 'admin' LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mINSERT INTO "custom_roles_join" ("roled_id", "role_id") VALUES (17, 26)[0m
+  [1m[35m (0.2ms)[0m  SELECT COUNT(count_column) FROM (SELECT 1 AS count_column FROM "custom_roles" INNER JOIN "custom_roles_join" ON "custom_roles"."id" = "custom_roles_join"."role_id" WHERE "custom_roles_join"."roled_id" = 17 AND "custom_roles"."name" = 'admin' LIMIT 1) subquery_for_count 
+  [1m[36m (1.1ms)[0m  [1mDELETE FROM "users";[0m
+  [1m[35m (1.3ms)[0m  DELETE FROM "role_me_roles";
+  [1m[36m (1.3ms)[0m  [1mDELETE FROM "role_me_roles_join";[0m
+  [1m[35m (1.2ms)[0m  DELETE FROM "custom_roleds";
+  [1m[36m (2.6ms)[0m  [1mDELETE FROM "custom_roles";[0m
+  [1m[35m (1.4ms)[0m  DELETE FROM "custom_roles_join";
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "custom_roles" ("created_at", "name", "updated_at") VALUES (?, ?, ?)[0m  [["created_at", Wed, 12 Oct 2011 23:23:38 UTC +00:00], ["name", :admin], ["updated_at", Wed, 12 Oct 2011 23:23:38 UTC +00:00]]
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "custom_roleds" ("created_at", "updated_at") VALUES (?, ?)  [["created_at", Wed, 12 Oct 2011 23:23:37 UTC +00:00], ["updated_at", Wed, 12 Oct 2011 23:23:38 UTC +00:00]]
+  [1m[36mCustomRole Load (0.2ms)[0m  [1mSELECT "custom_roles".* FROM "custom_roles" INNER JOIN "custom_roles_join" ON "custom_roles"."id" = "custom_roles_join"."role_id" WHERE "custom_roles_join"."roled_id" = 18[0m
+  [1m[35m (0.2ms)[0m  SELECT COUNT(count_column) FROM (SELECT 1 AS count_column FROM "custom_roles" INNER JOIN "custom_roles_join" ON "custom_roles"."id" = "custom_roles_join"."role_id" WHERE "custom_roles_join"."roled_id" = 18 AND "custom_roles"."name" = 'guest' LIMIT 1) subquery_for_count 
+  [1m[36mCustomRole Load (0.2ms)[0m  [1mSELECT "custom_roles".* FROM "custom_roles" WHERE "custom_roles"."name" = 'guest' LIMIT 1[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "custom_roles" ("created_at", "name", "updated_at") VALUES (?, ?, ?)  [["created_at", Wed, 12 Oct 2011 23:23:38 UTC +00:00], ["name", "guest"], ["updated_at", Wed, 12 Oct 2011 23:23:38 UTC +00:00]]
+  [1m[36m (0.2ms)[0m  [1mINSERT INTO "custom_roles_join" ("roled_id", "role_id") VALUES (18, 28)[0m
+  [1m[35m (0.2ms)[0m  SELECT COUNT(count_column) FROM (SELECT 1 AS count_column FROM "custom_roles" INNER JOIN "custom_roles_join" ON "custom_roles"."id" = "custom_roles_join"."role_id" WHERE "custom_roles_join"."roled_id" = 18 AND "custom_roles"."name" = 'guest' LIMIT 1) subquery_for_count 
+  [1m[36m (1.8ms)[0m  [1mDELETE FROM "users";[0m
+  [1m[35m (1.5ms)[0m  DELETE FROM "role_me_roles";
+  [1m[36m (1.5ms)[0m  [1mDELETE FROM "role_me_roles_join";[0m
+  [1m[35m (1.3ms)[0m  DELETE FROM "custom_roleds";
+  [1m[36m (1.9ms)[0m  [1mDELETE FROM "custom_roles";[0m
+  [1m[35m (1.4ms)[0m  DELETE FROM "custom_roles_join";
+  [1m[36mSQL (0.7ms)[0m  [1mINSERT INTO "custom_roles" ("created_at", "name", "updated_at") VALUES (?, ?, ?)[0m  [["created_at", Wed, 12 Oct 2011 23:23:38 UTC +00:00], ["name", :admin], ["updated_at", Wed, 12 Oct 2011 23:23:38 UTC +00:00]]
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "custom_roleds" ("created_at", "updated_at") VALUES (?, ?)  [["created_at", Wed, 12 Oct 2011 23:23:37 UTC +00:00], ["updated_at", Wed, 12 Oct 2011 23:23:38 UTC +00:00]]
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(count_column) FROM (SELECT 1 AS count_column FROM "custom_roles" INNER JOIN "custom_roles_join" ON "custom_roles"."id" = "custom_roles_join"."role_id" WHERE "custom_roles_join"."roled_id" = 19 AND "custom_roles"."name" = 'admin' LIMIT 1) subquery_for_count [0m
+  [1m[35mCustomRole Load (0.1ms)[0m  SELECT "custom_roles".* FROM "custom_roles" WHERE "custom_roles"."name" = 'admin' LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mINSERT INTO "custom_roles_join" ("roled_id", "role_id") VALUES (19, 29)[0m
+  [1m[35m (0.2ms)[0m  SELECT COUNT(count_column) FROM (SELECT 1 AS count_column FROM "custom_roles" INNER JOIN "custom_roles_join" ON "custom_roles"."id" = "custom_roles_join"."role_id" WHERE "custom_roles_join"."roled_id" = 19 AND "custom_roles"."name" = 'admin' LIMIT 1) subquery_for_count 
+  [1m[36m (1.3ms)[0m  [1mDELETE FROM "users";[0m
+  [1m[35m (1.4ms)[0m  DELETE FROM "role_me_roles";
+  [1m[36m (1.4ms)[0m  [1mDELETE FROM "role_me_roles_join";[0m
+  [1m[35m (1.3ms)[0m  DELETE FROM "custom_roleds";
+  [1m[36m (2.2ms)[0m  [1mDELETE FROM "custom_roles";[0m
+  [1m[35m (1.5ms)[0m  DELETE FROM "custom_roles_join";
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "custom_roles" ("created_at", "name", "updated_at") VALUES (?, ?, ?)[0m  [["created_at", Wed, 12 Oct 2011 23:23:38 UTC +00:00], ["name", :admin], ["updated_at", Wed, 12 Oct 2011 23:23:38 UTC +00:00]]
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "custom_roleds" ("created_at", "updated_at") VALUES (?, ?)  [["created_at", Wed, 12 Oct 2011 23:23:37 UTC +00:00], ["updated_at", Wed, 12 Oct 2011 23:23:38 UTC +00:00]]
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(count_column) FROM (SELECT 1 AS count_column FROM "custom_roles" INNER JOIN "custom_roles_join" ON "custom_roles"."id" = "custom_roles_join"."role_id" WHERE "custom_roles_join"."roled_id" = 20 AND "custom_roles"."name" = 'admin' LIMIT 1) subquery_for_count [0m
+  [1m[35mCustomRole Load (0.1ms)[0m  SELECT "custom_roles".* FROM "custom_roles" WHERE "custom_roles"."name" = 'admin' LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mINSERT INTO "custom_roles_join" ("roled_id", "role_id") VALUES (20, 30)[0m
+  [1m[35m (0.2ms)[0m  SELECT COUNT(count_column) FROM (SELECT 1 AS count_column FROM "custom_roles" INNER JOIN "custom_roles_join" ON "custom_roles"."id" = "custom_roles_join"."role_id" WHERE "custom_roles_join"."roled_id" = 20 AND "custom_roles"."name" = 'admin' LIMIT 1) subquery_for_count 
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(count_column) FROM (SELECT 1 AS count_column FROM "custom_roles" INNER JOIN "custom_roles_join" ON "custom_roles"."id" = "custom_roles_join"."role_id" WHERE "custom_roles_join"."roled_id" = 20 AND "custom_roles"."name" = 'guest' LIMIT 1) subquery_for_count [0m
+  [1m[35mCustomRole Load (0.1ms)[0m  SELECT "custom_roles".* FROM "custom_roles" WHERE "custom_roles"."name" = 'guest' LIMIT 1
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "custom_roles" ("created_at", "name", "updated_at") VALUES (?, ?, ?)[0m  [["created_at", Wed, 12 Oct 2011 23:23:38 UTC +00:00], ["name", "guest"], ["updated_at", Wed, 12 Oct 2011 23:23:38 UTC +00:00]]
+  [1m[35m (0.2ms)[0m  INSERT INTO "custom_roles_join" ("roled_id", "role_id") VALUES (20, 31)
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(count_column) FROM (SELECT 1 AS count_column FROM "custom_roles" INNER JOIN "custom_roles_join" ON "custom_roles"."id" = "custom_roles_join"."role_id" WHERE "custom_roles_join"."roled_id" = 20 AND "custom_roles"."name" = 'guest' LIMIT 1) subquery_for_count [0m
+  [1m[35m (0.1ms)[0m  SELECT COUNT(count_column) FROM (SELECT 1 AS count_column FROM "custom_roles" INNER JOIN "custom_roles_join" ON "custom_roles"."id" = "custom_roles_join"."role_id" WHERE "custom_roles_join"."roled_id" = 20 AND "custom_roles"."name" = 'weird' LIMIT 1) subquery_for_count 
+  [1m[36mCustomRole Load (0.1ms)[0m  [1mSELECT "custom_roles".* FROM "custom_roles" WHERE "custom_roles"."name" = 'weird' LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "custom_roles" ("created_at", "name", "updated_at") VALUES (?, ?, ?)  [["created_at", Wed, 12 Oct 2011 23:23:38 UTC +00:00], ["name", "weird"], ["updated_at", Wed, 12 Oct 2011 23:23:38 UTC +00:00]]
+  [1m[36m (0.2ms)[0m  [1mINSERT INTO "custom_roles_join" ("roled_id", "role_id") VALUES (20, 32)[0m
+  [1m[35m (0.3ms)[0m  SELECT COUNT(count_column) FROM (SELECT 1 AS count_column FROM "custom_roles" INNER JOIN "custom_roles_join" ON "custom_roles"."id" = "custom_roles_join"."role_id" WHERE "custom_roles_join"."roled_id" = 20 AND "custom_roles"."name" = 'weird' LIMIT 1) subquery_for_count 
+  [1m[36mCustomRole Load (0.1ms)[0m  [1mSELECT "custom_roles".* FROM "custom_roles" INNER JOIN "custom_roles_join" ON "custom_roles"."id" = "custom_roles_join"."role_id" WHERE "custom_roles_join"."roled_id" = 20[0m
+  [1m[35m (1.2ms)[0m  DELETE FROM "users";
+  [1m[36m (1.5ms)[0m  [1mDELETE FROM "role_me_roles";[0m
+  [1m[35m (1.3ms)[0m  DELETE FROM "role_me_roles_join";
+  [1m[36m (1.3ms)[0m  [1mDELETE FROM "custom_roleds";[0m
+  [1m[35m (1.4ms)[0m  DELETE FROM "custom_roles";
+  [1m[36m (2.4ms)[0m  [1mDELETE FROM "custom_roles_join";[0m
+  [1m[35m (1.1ms)[0m  DELETE FROM "users";
+  [1m[36m (2.1ms)[0m  [1mDELETE FROM "role_me_roles";[0m
+  [1m[35m (1.5ms)[0m  DELETE FROM "role_me_roles_join";
+  [1m[36m (1.3ms)[0m  [1mDELETE FROM "custom_roleds";[0m
+  [1m[35m (1.2ms)[0m  DELETE FROM "custom_roles";
+  [1m[36m (1.3ms)[0m  [1mDELETE FROM "custom_roles_join";[0m
+  [1m[35m (1.3ms)[0m  DELETE FROM "users";
+  [1m[36m (1.7ms)[0m  [1mDELETE FROM "role_me_roles";[0m
+  [1m[35m (1.4ms)[0m  DELETE FROM "role_me_roles_join";
+  [1m[36m (1.3ms)[0m  [1mDELETE FROM "custom_roleds";[0m
+  [1m[35m (1.3ms)[0m  DELETE FROM "custom_roles";
+  [1m[36m (2.2ms)[0m  [1mDELETE FROM "custom_roles_join";[0m
+  [1m[35mSQL (0.6ms)[0m  INSERT INTO "role_me_roles" ("created_at", "name", "updated_at") VALUES (?, ?, ?)  [["created_at", Wed, 12 Oct 2011 23:23:38 UTC +00:00], ["name", :admin], ["updated_at", Wed, 12 Oct 2011 23:23:38 UTC +00:00]]
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "users" ("created_at", "updated_at") VALUES (?, ?)[0m  [["created_at", Wed, 12 Oct 2011 23:23:37 UTC +00:00], ["updated_at", Wed, 12 Oct 2011 23:23:38 UTC +00:00]]
+  [1m[35mRoleMe::Role Load (0.2ms)[0m  SELECT "role_me_roles".* FROM "role_me_roles" INNER JOIN "role_me_roles_join" ON "role_me_roles"."id" = "role_me_roles_join"."role_id" WHERE "role_me_roles_join"."roled_id" = 75
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(count_column) FROM (SELECT 1 AS count_column FROM "role_me_roles" INNER JOIN "role_me_roles_join" ON "role_me_roles"."id" = "role_me_roles_join"."role_id" WHERE "role_me_roles_join"."roled_id" = 75 AND "role_me_roles"."name" = 'admin' LIMIT 1) subquery_for_count [0m
+  [1m[35mRoleMe::Role Load (0.1ms)[0m  SELECT "role_me_roles".* FROM "role_me_roles" WHERE "role_me_roles"."name" = 'admin' LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mINSERT INTO "role_me_roles_join" ("roled_id", "role_id") VALUES (75, 96)[0m
+  [1m[35m (0.2ms)[0m  SELECT COUNT(count_column) FROM (SELECT 1 AS count_column FROM "role_me_roles" INNER JOIN "role_me_roles_join" ON "role_me_roles"."id" = "role_me_roles_join"."role_id" WHERE "role_me_roles_join"."roled_id" = 75 AND "role_me_roles"."name" = 'admin' LIMIT 1) subquery_for_count 
+  [1m[36m (1.2ms)[0m  [1mDELETE FROM "users";[0m
+  [1m[35m (1.9ms)[0m  DELETE FROM "role_me_roles";
+  [1m[36m (1.5ms)[0m  [1mDELETE FROM "role_me_roles_join";[0m
+  [1m[35m (1.3ms)[0m  DELETE FROM "custom_roleds";
+  [1m[36m (1.4ms)[0m  [1mDELETE FROM "custom_roles";[0m
+  [1m[35m (1.5ms)[0m  DELETE FROM "custom_roles_join";
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "role_me_roles" ("created_at", "name", "updated_at") VALUES (?, ?, ?)[0m  [["created_at", Wed, 12 Oct 2011 23:23:38 UTC +00:00], ["name", :admin], ["updated_at", Wed, 12 Oct 2011 23:23:38 UTC +00:00]]
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "users" ("created_at", "updated_at") VALUES (?, ?)  [["created_at", Wed, 12 Oct 2011 23:23:37 UTC +00:00], ["updated_at", Wed, 12 Oct 2011 23:23:38 UTC +00:00]]
+  [1m[36mRoleMe::Role Load (0.2ms)[0m  [1mSELECT "role_me_roles".* FROM "role_me_roles" INNER JOIN "role_me_roles_join" ON "role_me_roles"."id" = "role_me_roles_join"."role_id" WHERE "role_me_roles_join"."roled_id" = 76[0m
+  [1m[35m (0.2ms)[0m  SELECT COUNT(count_column) FROM (SELECT 1 AS count_column FROM "role_me_roles" INNER JOIN "role_me_roles_join" ON "role_me_roles"."id" = "role_me_roles_join"."role_id" WHERE "role_me_roles_join"."roled_id" = 76 AND "role_me_roles"."name" = 'guest' LIMIT 1) subquery_for_count 
+  [1m[36mRoleMe::Role Load (0.1ms)[0m  [1mSELECT "role_me_roles".* FROM "role_me_roles" WHERE "role_me_roles"."name" = 'guest' LIMIT 1[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "role_me_roles" ("created_at", "name", "updated_at") VALUES (?, ?, ?)  [["created_at", Wed, 12 Oct 2011 23:23:38 UTC +00:00], ["name", "guest"], ["updated_at", Wed, 12 Oct 2011 23:23:38 UTC +00:00]]
+  [1m[36m (0.2ms)[0m  [1mINSERT INTO "role_me_roles_join" ("roled_id", "role_id") VALUES (76, 98)[0m
+  [1m[35m (0.2ms)[0m  SELECT COUNT(count_column) FROM (SELECT 1 AS count_column FROM "role_me_roles" INNER JOIN "role_me_roles_join" ON "role_me_roles"."id" = "role_me_roles_join"."role_id" WHERE "role_me_roles_join"."roled_id" = 76 AND "role_me_roles"."name" = 'guest' LIMIT 1) subquery_for_count 
+  [1m[36m (1.1ms)[0m  [1mDELETE FROM "users";[0m
+  [1m[35m (2.1ms)[0m  DELETE FROM "role_me_roles";
+  [1m[36m (1.5ms)[0m  [1mDELETE FROM "role_me_roles_join";[0m
+  [1m[35m (1.3ms)[0m  DELETE FROM "custom_roleds";
+  [1m[36m (1.3ms)[0m  [1mDELETE FROM "custom_roles";[0m
+  [1m[35m (1.3ms)[0m  DELETE FROM "custom_roles_join";
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "role_me_roles" ("created_at", "name", "updated_at") VALUES (?, ?, ?)[0m  [["created_at", Wed, 12 Oct 2011 23:23:38 UTC +00:00], ["name", :admin], ["updated_at", Wed, 12 Oct 2011 23:23:38 UTC +00:00]]
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "users" ("created_at", "updated_at") VALUES (?, ?)  [["created_at", Wed, 12 Oct 2011 23:23:37 UTC +00:00], ["updated_at", Wed, 12 Oct 2011 23:23:38 UTC +00:00]]
+  [1m[36m (0.3ms)[0m  [1mSELECT COUNT(count_column) FROM (SELECT 1 AS count_column FROM "role_me_roles" INNER JOIN "role_me_roles_join" ON "role_me_roles"."id" = "role_me_roles_join"."role_id" WHERE "role_me_roles_join"."roled_id" = 77 AND "role_me_roles"."name" = 'admin' LIMIT 1) subquery_for_count [0m
+  [1m[35mRoleMe::Role Load (0.1ms)[0m  SELECT "role_me_roles".* FROM "role_me_roles" WHERE "role_me_roles"."name" = 'admin' LIMIT 1
+  [1m[36m (0.3ms)[0m  [1mINSERT INTO "role_me_roles_join" ("roled_id", "role_id") VALUES (77, 99)[0m
+  [1m[35m (0.2ms)[0m  SELECT COUNT(count_column) FROM (SELECT 1 AS count_column FROM "role_me_roles" INNER JOIN "role_me_roles_join" ON "role_me_roles"."id" = "role_me_roles_join"."role_id" WHERE "role_me_roles_join"."roled_id" = 77 AND "role_me_roles"."name" = 'admin' LIMIT 1) subquery_for_count 
+  [1m[36m (1.1ms)[0m  [1mDELETE FROM "users";[0m
+  [1m[35m (1.3ms)[0m  DELETE FROM "role_me_roles";
+  [1m[36m (1.5ms)[0m  [1mDELETE FROM "role_me_roles_join";[0m
+  [1m[35m (2.0ms)[0m  DELETE FROM "custom_roleds";
+  [1m[36m (1.4ms)[0m  [1mDELETE FROM "custom_roles";[0m
+  [1m[35m (1.3ms)[0m  DELETE FROM "custom_roles_join";
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "role_me_roles" ("created_at", "name", "updated_at") VALUES (?, ?, ?)[0m  [["created_at", Wed, 12 Oct 2011 23:23:38 UTC +00:00], ["name", :admin], ["updated_at", Wed, 12 Oct 2011 23:23:38 UTC +00:00]]
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "users" ("created_at", "updated_at") VALUES (?, ?)  [["created_at", Wed, 12 Oct 2011 23:23:37 UTC +00:00], ["updated_at", Wed, 12 Oct 2011 23:23:38 UTC +00:00]]
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(count_column) FROM (SELECT 1 AS count_column FROM "role_me_roles" INNER JOIN "role_me_roles_join" ON "role_me_roles"."id" = "role_me_roles_join"."role_id" WHERE "role_me_roles_join"."roled_id" = 78 AND "role_me_roles"."name" = 'admin' LIMIT 1) subquery_for_count [0m
+  [1m[35mRoleMe::Role Load (0.1ms)[0m  SELECT "role_me_roles".* FROM "role_me_roles" WHERE "role_me_roles"."name" = 'admin' LIMIT 1
+  [1m[36m (0.3ms)[0m  [1mINSERT INTO "role_me_roles_join" ("roled_id", "role_id") VALUES (78, 100)[0m
+  [1m[35m (0.2ms)[0m  SELECT COUNT(count_column) FROM (SELECT 1 AS count_column FROM "role_me_roles" INNER JOIN "role_me_roles_join" ON "role_me_roles"."id" = "role_me_roles_join"."role_id" WHERE "role_me_roles_join"."roled_id" = 78 AND "role_me_roles"."name" = 'admin' LIMIT 1) subquery_for_count 
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(count_column) FROM (SELECT 1 AS count_column FROM "role_me_roles" INNER JOIN "role_me_roles_join" ON "role_me_roles"."id" = "role_me_roles_join"."role_id" WHERE "role_me_roles_join"."roled_id" = 78 AND "role_me_roles"."name" = 'guest' LIMIT 1) subquery_for_count [0m
+  [1m[35mRoleMe::Role Load (0.2ms)[0m  SELECT "role_me_roles".* FROM "role_me_roles" WHERE "role_me_roles"."name" = 'guest' LIMIT 1
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "role_me_roles" ("created_at", "name", "updated_at") VALUES (?, ?, ?)[0m  [["created_at", Wed, 12 Oct 2011 23:23:38 UTC +00:00], ["name", "guest"], ["updated_at", Wed, 12 Oct 2011 23:23:38 UTC +00:00]]
+  [1m[35m (0.2ms)[0m  INSERT INTO "role_me_roles_join" ("roled_id", "role_id") VALUES (78, 101)
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(count_column) FROM (SELECT 1 AS count_column FROM "role_me_roles" INNER JOIN "role_me_roles_join" ON "role_me_roles"."id" = "role_me_roles_join"."role_id" WHERE "role_me_roles_join"."roled_id" = 78 AND "role_me_roles"."name" = 'guest' LIMIT 1) subquery_for_count [0m
+  [1m[35m (0.2ms)[0m  SELECT COUNT(count_column) FROM (SELECT 1 AS count_column FROM "role_me_roles" INNER JOIN "role_me_roles_join" ON "role_me_roles"."id" = "role_me_roles_join"."role_id" WHERE "role_me_roles_join"."roled_id" = 78 AND "role_me_roles"."name" = 'weird' LIMIT 1) subquery_for_count 
+  [1m[36mRoleMe::Role Load (0.1ms)[0m  [1mSELECT "role_me_roles".* FROM "role_me_roles" WHERE "role_me_roles"."name" = 'weird' LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "role_me_roles" ("created_at", "name", "updated_at") VALUES (?, ?, ?)  [["created_at", Wed, 12 Oct 2011 23:23:38 UTC +00:00], ["name", "weird"], ["updated_at", Wed, 12 Oct 2011 23:23:38 UTC +00:00]]
+  [1m[36m (0.2ms)[0m  [1mINSERT INTO "role_me_roles_join" ("roled_id", "role_id") VALUES (78, 102)[0m
+  [1m[35m (0.2ms)[0m  SELECT COUNT(count_column) FROM (SELECT 1 AS count_column FROM "role_me_roles" INNER JOIN "role_me_roles_join" ON "role_me_roles"."id" = "role_me_roles_join"."role_id" WHERE "role_me_roles_join"."roled_id" = 78 AND "role_me_roles"."name" = 'weird' LIMIT 1) subquery_for_count 
+  [1m[36mRoleMe::Role Load (0.1ms)[0m  [1mSELECT "role_me_roles".* FROM "role_me_roles" INNER JOIN "role_me_roles_join" ON "role_me_roles"."id" = "role_me_roles_join"."role_id" WHERE "role_me_roles_join"."roled_id" = 78[0m
