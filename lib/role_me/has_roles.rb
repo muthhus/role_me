@@ -38,14 +38,17 @@ module RoleMe
 
   end
 
+  # Module included when you call the has_role in a model
+  #
   module HasRolesMethods
-    included do
-
-    end
-
     module InstanceMethods
 
       # Adds the role to the model
+      #
+      # Example:
+      #
+      #   user.has_role! :admin
+      #   -> will add the admin role to user
       #
       def has_role! role
 
@@ -53,12 +56,15 @@ module RoleMe
 
       # Check if the model has the role
       #
+      # Example:
+      #
+      #   user.has_role? :admin
+      #   -> will return true if the user has the admin role
+      #
       def has_role? role
 
       end
 
     end
-
   end
-
 end
