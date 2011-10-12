@@ -48,7 +48,8 @@ module RoleMe
       has_and_belongs_to_many :roles,
         :class_name   => self.role_me_options[:role_class_name],
         :join_table   => self.role_me_options[:role_join_table],
-        :foreign_key  => "roled_id"
+        :foreign_key  => "roled_id",
+        :association_foreign_key => "role_id"
 
     end
 
