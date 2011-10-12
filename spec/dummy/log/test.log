@@ -1,0 +1,289 @@
+  [1m[36m (0.1ms)[0m  [1mselect sqlite_version(*)[0m
+  [1m[35m (1.2ms)[0m  CREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) 
+  [1m[36m (0.0ms)[0m  [1mPRAGMA index_list("schema_migrations")[0m
+  [1m[35m (1.1ms)[0m  CREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")
+  [1m[36m (0.1ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations" [0m
+Migrating to CreateUsers (20111012184816)
+  [1m[35m (0.5ms)[0m  CREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "created_at" datetime, "updated_at" datetime) 
+  [1m[36m (0.1ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ('20111012184816')[0m
+Migrating to CreateRoleMeRoles (20111012211501)
+  [1m[35m (0.8ms)[0m  CREATE TABLE "role_me_roles" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "created_at" datetime, "updated_at" datetime) 
+  [1m[36m (0.1ms)[0m  [1mPRAGMA index_list("role_me_roles")[0m
+  [1m[35m (0.7ms)[0m  CREATE UNIQUE INDEX "index_role_me_roles_on_name" ON "role_me_roles" ("name")
+  [1m[36m (0.2ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ('20111012211501')[0m
+Migrating to CreateRoleMeRolesJoin (20111012211502)
+  [1m[35m (0.5ms)[0m  CREATE TABLE "role_me_roles_join" ("roled_id" integer, "role_id" integer, "created_at" datetime, "updated_at" datetime) 
+  [1m[36m (0.0ms)[0m  [1mPRAGMA index_list("role_me_roles_join")[0m
+  [1m[35m (0.5ms)[0m  CREATE UNIQUE INDEX "roled_roles" ON "role_me_roles_join" ("roled_id", "role_id")
+  [1m[36m (0.1ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ('20111012211502')[0m
+  [1m[36m (0.1ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations" [0m
+Migrating to CreateUsers (20111012184816)
+Migrating to CreateRoleMeRoles (20111012211501)
+Migrating to CreateRoleMeRolesJoin (20111012211502)
+  [1m[36m (0.1ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations" [0m
+Migrating to CreateUsers (20111012184816)
+Migrating to CreateRoleMeRoles (20111012211501)
+Migrating to CreateRoleMeRolesJoin (20111012211502)
+  [1m[36m (0.1ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations" [0m
+Migrating to CreateUsers (20111012184816)
+Migrating to CreateRoleMeRoles (20111012211501)
+Migrating to CreateRoleMeRolesJoin (20111012211502)
+  [1m[35m (1.3ms)[0m  DELETE FROM "users";
+  [1m[36m (1.3ms)[0m  [1mDELETE FROM "role_me_roles";[0m
+  [1m[35m (1.3ms)[0m  DELETE FROM "role_me_roles_join";
+  [1m[36m (2.4ms)[0m  [1mDELETE FROM "users";[0m
+  [1m[35m (1.4ms)[0m  DELETE FROM "role_me_roles";
+  [1m[36m (1.3ms)[0m  [1mDELETE FROM "role_me_roles_join";[0m
+  [1m[35m (1.2ms)[0m  DELETE FROM "users";
+  [1m[36m (1.4ms)[0m  [1mDELETE FROM "role_me_roles";[0m
+  [1m[35m (1.4ms)[0m  DELETE FROM "role_me_roles_join";
+  [1m[36m (1.6ms)[0m  [1mDELETE FROM "users";[0m
+  [1m[35m (1.3ms)[0m  DELETE FROM "role_me_roles";
+  [1m[36m (1.4ms)[0m  [1mDELETE FROM "role_me_roles_join";[0m
+  [1m[35m (1.1ms)[0m  DELETE FROM "users";
+  [1m[36m (1.5ms)[0m  [1mDELETE FROM "role_me_roles";[0m
+  [1m[35m (1.3ms)[0m  DELETE FROM "role_me_roles_join";
+  [1m[36m (1.2ms)[0m  [1mDELETE FROM "users";[0m
+  [1m[35m (1.3ms)[0m  DELETE FROM "role_me_roles";
+  [1m[36m (1.3ms)[0m  [1mDELETE FROM "role_me_roles_join";[0m
+  [1m[36m (0.1ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations" [0m
+Migrating to CreateUsers (20111012184816)
+Migrating to CreateRoleMeRoles (20111012211501)
+Migrating to CreateRoleMeRolesJoin (20111012211502)
+  [1m[35m (1.2ms)[0m  DELETE FROM "users";
+  [1m[36m (1.3ms)[0m  [1mDELETE FROM "role_me_roles";[0m
+  [1m[35m (1.3ms)[0m  DELETE FROM "role_me_roles_join";
+  [1m[36m (1.1ms)[0m  [1mDELETE FROM "users";[0m
+  [1m[35m (1.3ms)[0m  DELETE FROM "role_me_roles";
+  [1m[36m (1.3ms)[0m  [1mDELETE FROM "role_me_roles_join";[0m
+  [1m[35m (1.2ms)[0m  DELETE FROM "users";
+  [1m[36m (1.4ms)[0m  [1mDELETE FROM "role_me_roles";[0m
+  [1m[35m (1.4ms)[0m  DELETE FROM "role_me_roles_join";
+  [1m[36m (1.1ms)[0m  [1mDELETE FROM "users";[0m
+  [1m[35m (1.4ms)[0m  DELETE FROM "role_me_roles";
+  [1m[36m (2.7ms)[0m  [1mDELETE FROM "role_me_roles_join";[0m
+  [1m[35m (1.1ms)[0m  DELETE FROM "users";
+  [1m[36m (1.2ms)[0m  [1mDELETE FROM "role_me_roles";[0m
+  [1m[35m (1.2ms)[0m  DELETE FROM "role_me_roles_join";
+  [1m[36m (2.2ms)[0m  [1mDELETE FROM "users";[0m
+  [1m[35m (1.3ms)[0m  DELETE FROM "role_me_roles";
+  [1m[36m (1.5ms)[0m  [1mDELETE FROM "role_me_roles_join";[0m
+  [1m[36m (0.1ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations" [0m
+Migrating to CreateUsers (20111012184816)
+Migrating to CreateRoleMeRoles (20111012211501)
+Migrating to CreateRoleMeRolesJoin (20111012211502)
+  [1m[35m (1.2ms)[0m  DELETE FROM "users";
+  [1m[36m (1.4ms)[0m  [1mDELETE FROM "role_me_roles";[0m
+  [1m[35m (1.3ms)[0m  DELETE FROM "role_me_roles_join";
+  [1m[36m (1.0ms)[0m  [1mDELETE FROM "users";[0m
+  [1m[35m (1.3ms)[0m  DELETE FROM "role_me_roles";
+  [1m[36m (1.3ms)[0m  [1mDELETE FROM "role_me_roles_join";[0m
+  [1m[35m (1.1ms)[0m  DELETE FROM "users";
+  [1m[36m (1.3ms)[0m  [1mDELETE FROM "role_me_roles";[0m
+  [1m[35m (1.3ms)[0m  DELETE FROM "role_me_roles_join";
+  [1m[36m (1.0ms)[0m  [1mDELETE FROM "users";[0m
+  [1m[35m (1.3ms)[0m  DELETE FROM "role_me_roles";
+  [1m[36m (1.3ms)[0m  [1mDELETE FROM "role_me_roles_join";[0m
+  [1m[35m (1.2ms)[0m  DELETE FROM "users";
+  [1m[36m (1.8ms)[0m  [1mDELETE FROM "role_me_roles";[0m
+  [1m[35m (1.8ms)[0m  DELETE FROM "role_me_roles_join";
+  [1m[36m (1.0ms)[0m  [1mDELETE FROM "users";[0m
+  [1m[35m (1.2ms)[0m  DELETE FROM "role_me_roles";
+  [1m[36m (1.4ms)[0m  [1mDELETE FROM "role_me_roles_join";[0m
+  [1m[36m (0.1ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations" [0m
+Migrating to CreateUsers (20111012184816)
+Migrating to CreateRoleMeRoles (20111012211501)
+Migrating to CreateRoleMeRolesJoin (20111012211502)
+  [1m[36m (0.1ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations" [0m
+Migrating to CreateUsers (20111012184816)
+Migrating to CreateRoleMeRoles (20111012211501)
+Migrating to CreateRoleMeRolesJoin (20111012211502)
+  [1m[35m (1.2ms)[0m  DELETE FROM "users";
+  [1m[36m (1.4ms)[0m  [1mDELETE FROM "role_me_roles";[0m
+  [1m[35m (1.3ms)[0m  DELETE FROM "role_me_roles_join";
+  [1m[36m (1.2ms)[0m  [1mDELETE FROM "users";[0m
+  [1m[35m (1.3ms)[0m  DELETE FROM "role_me_roles";
+  [1m[36m (1.3ms)[0m  [1mDELETE FROM "role_me_roles_join";[0m
+  [1m[35m (1.2ms)[0m  DELETE FROM "users";
+  [1m[36m (1.4ms)[0m  [1mDELETE FROM "role_me_roles";[0m
+  [1m[35m (2.7ms)[0m  DELETE FROM "role_me_roles_join";
+  [1m[36m (1.0ms)[0m  [1mDELETE FROM "users";[0m
+  [1m[35m (1.3ms)[0m  DELETE FROM "role_me_roles";
+  [1m[36m (1.3ms)[0m  [1mDELETE FROM "role_me_roles_join";[0m
+  [1m[35m (1.0ms)[0m  DELETE FROM "users";
+  [1m[36m (1.3ms)[0m  [1mDELETE FROM "role_me_roles";[0m
+  [1m[35m (1.5ms)[0m  DELETE FROM "role_me_roles_join";
+  [1m[36m (1.1ms)[0m  [1mDELETE FROM "users";[0m
+  [1m[35m (1.3ms)[0m  DELETE FROM "role_me_roles";
+  [1m[36m (1.3ms)[0m  [1mDELETE FROM "role_me_roles_join";[0m
+  [1m[36m (0.1ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations" [0m
+Migrating to CreateUsers (20111012184816)
+Migrating to CreateRoleMeRoles (20111012211501)
+Migrating to CreateRoleMeRolesJoin (20111012211502)
+  [1m[35m (1.2ms)[0m  DELETE FROM "users";
+  [1m[36m (1.4ms)[0m  [1mDELETE FROM "role_me_roles";[0m
+  [1m[35m (1.4ms)[0m  DELETE FROM "role_me_roles_join";
+  [1m[36m (1.1ms)[0m  [1mDELETE FROM "users";[0m
+  [1m[35m (1.2ms)[0m  DELETE FROM "role_me_roles";
+  [1m[36m (1.2ms)[0m  [1mDELETE FROM "role_me_roles_join";[0m
+  [1m[35m (1.0ms)[0m  DELETE FROM "users";
+  [1m[36m (1.2ms)[0m  [1mDELETE FROM "role_me_roles";[0m
+  [1m[35m (1.3ms)[0m  DELETE FROM "role_me_roles_join";
+  [1m[36m (1.0ms)[0m  [1mDELETE FROM "users";[0m
+  [1m[35m (1.3ms)[0m  DELETE FROM "role_me_roles";
+  [1m[36m (1.2ms)[0m  [1mDELETE FROM "role_me_roles_join";[0m
+  [1m[35m (1.1ms)[0m  DELETE FROM "users";
+  [1m[36m (1.2ms)[0m  [1mDELETE FROM "role_me_roles";[0m
+  [1m[35m (1.9ms)[0m  DELETE FROM "role_me_roles_join";
+  [1m[36m (1.1ms)[0m  [1mDELETE FROM "users";[0m
+  [1m[35m (1.3ms)[0m  DELETE FROM "role_me_roles";
+  [1m[36m (1.6ms)[0m  [1mDELETE FROM "role_me_roles_join";[0m
+  [1m[36m (0.1ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations" [0m
+Migrating to CreateUsers (20111012184816)
+Migrating to CreateRoleMeRoles (20111012211501)
+Migrating to CreateRoleMeRolesJoin (20111012211502)
+  [1m[36m (0.1ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations" [0m
+Migrating to CreateUsers (20111012184816)
+Migrating to CreateRoleMeRoles (20111012211501)
+Migrating to CreateRoleMeRolesJoin (20111012211502)
+  [1m[35m (1.2ms)[0m  DELETE FROM "users";
+  [1m[36m (1.4ms)[0m  [1mDELETE FROM "role_me_roles";[0m
+  [1m[35m (1.4ms)[0m  DELETE FROM "role_me_roles_join";
+  [1m[36m (1.2ms)[0m  [1mDELETE FROM "users";[0m
+  [1m[35m (1.5ms)[0m  DELETE FROM "role_me_roles";
+  [1m[36m (1.5ms)[0m  [1mDELETE FROM "role_me_roles_join";[0m
+  [1m[35m (1.2ms)[0m  DELETE FROM "users";
+  [1m[36m (2.3ms)[0m  [1mDELETE FROM "role_me_roles";[0m
+  [1m[35m (1.4ms)[0m  DELETE FROM "role_me_roles_join";
+  [1m[36m (1.0ms)[0m  [1mDELETE FROM "users";[0m
+  [1m[35m (1.7ms)[0m  DELETE FROM "role_me_roles";
+  [1m[36m (1.6ms)[0m  [1mDELETE FROM "role_me_roles_join";[0m
+  [1m[35m (1.2ms)[0m  DELETE FROM "users";
+  [1m[36m (1.4ms)[0m  [1mDELETE FROM "role_me_roles";[0m
+  [1m[35m (1.4ms)[0m  DELETE FROM "role_me_roles_join";
+  [1m[36m (1.1ms)[0m  [1mDELETE FROM "users";[0m
+  [1m[35m (1.3ms)[0m  DELETE FROM "role_me_roles";
+  [1m[36m (1.4ms)[0m  [1mDELETE FROM "role_me_roles_join";[0m
+  [1m[36m (0.1ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations" [0m
+Migrating to CreateUsers (20111012184816)
+Migrating to CreateRoleMeRoles (20111012211501)
+Migrating to CreateRoleMeRolesJoin (20111012211502)
+  [1m[35m (1.2ms)[0m  DELETE FROM "users";
+  [1m[36m (1.3ms)[0m  [1mDELETE FROM "role_me_roles";[0m
+  [1m[35m (1.3ms)[0m  DELETE FROM "role_me_roles_join";
+  [1m[36m (1.2ms)[0m  [1mDELETE FROM "users";[0m
+  [1m[35m (1.3ms)[0m  DELETE FROM "role_me_roles";
+  [1m[36m (1.3ms)[0m  [1mDELETE FROM "role_me_roles_join";[0m
+  [1m[35m (1.1ms)[0m  DELETE FROM "users";
+  [1m[36m (1.3ms)[0m  [1mDELETE FROM "role_me_roles";[0m
+  [1m[35m (2.1ms)[0m  DELETE FROM "role_me_roles_join";
+  [1m[36m (1.1ms)[0m  [1mDELETE FROM "users";[0m
+  [1m[35m (1.3ms)[0m  DELETE FROM "role_me_roles";
+  [1m[36m (1.3ms)[0m  [1mDELETE FROM "role_me_roles_join";[0m
+  [1m[35m (1.1ms)[0m  DELETE FROM "users";
+  [1m[36m (1.3ms)[0m  [1mDELETE FROM "role_me_roles";[0m
+  [1m[35m (1.3ms)[0m  DELETE FROM "role_me_roles_join";
+  [1m[36m (1.1ms)[0m  [1mDELETE FROM "users";[0m
+  [1m[35m (1.5ms)[0m  DELETE FROM "role_me_roles";
+  [1m[36m (1.6ms)[0m  [1mDELETE FROM "role_me_roles_join";[0m
+  [1m[36m (0.1ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations" [0m
+Migrating to CreateUsers (20111012184816)
+Migrating to CreateRoleMeRolesJoin (20111012211502)
+Migrating to CreateRoleMeRoles (20111012220632)
+  [1m[35m (0.1ms)[0m  select sqlite_version(*)
+  [1m[36m (0.2ms)[0m  [1mCREATE TABLE "role_me_roles" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "created_at" datetime, "updated_at" datetime) [0m
+SQLite3::SQLException: table "role_me_roles" already exists: CREATE TABLE "role_me_roles" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "created_at" datetime, "updated_at" datetime) 
+  [1m[36m (0.1ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations" [0m
+Migrating to CreateUsers (20111012184816)
+Migrating to CreateRoleMeRoles (20111012220750)
+  [1m[35m (0.0ms)[0m  select sqlite_version(*)
+  [1m[36m (0.1ms)[0m  [1mCREATE TABLE "role_me_roles" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
+SQLite3::SQLException: table "role_me_roles" already exists: CREATE TABLE "role_me_roles" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "created_at" datetime, "updated_at" datetime) 
+  [1m[36m (0.1ms)[0m  [1mselect sqlite_version(*)[0m
+  [1m[35m (1.2ms)[0m  CREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) 
+  [1m[36m (0.0ms)[0m  [1mPRAGMA index_list("schema_migrations")[0m
+  [1m[35m (1.1ms)[0m  CREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")
+  [1m[36m (0.1ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations" [0m
+Migrating to CreateUsers (20111012184816)
+  [1m[35m (0.4ms)[0m  CREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "created_at" datetime, "updated_at" datetime) 
+  [1m[36m (0.1ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ('20111012184816')[0m
+Migrating to CreateRoleMeRoles (20111012220750)
+  [1m[35m (0.4ms)[0m  CREATE TABLE "role_me_roles" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "created_at" datetime, "updated_at" datetime) 
+  [1m[36m (0.0ms)[0m  [1mPRAGMA index_list("role_me_roles")[0m
+  [1m[35m (0.4ms)[0m  CREATE UNIQUE INDEX "index_role_me_roles_on_name" ON "role_me_roles" ("name")
+  [1m[36m (0.2ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ('20111012220750')[0m
+Migrating to CreateRoleMeRolesJoin (20111012220751)
+  [1m[35m (0.4ms)[0m  CREATE TABLE "role_me_roles_join" ("roled_id" integer, "role_id" integer, "created_at" datetime, "updated_at" datetime) 
+  [1m[36m (0.0ms)[0m  [1mPRAGMA index_list("role_me_roles_join")[0m
+  [1m[35m (0.3ms)[0m  CREATE UNIQUE INDEX "roled_roles" ON "role_me_roles_join" ("roled_id", "role_id")
+  [1m[36m (0.1ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ('20111012220751')[0m
+  [1m[35m (1.2ms)[0m  DELETE FROM "users";
+  [1m[36m (1.5ms)[0m  [1mDELETE FROM "role_me_roles";[0m
+  [1m[35m (1.3ms)[0m  DELETE FROM "role_me_roles_join";
+  [1m[36m (1.1ms)[0m  [1mDELETE FROM "users";[0m
+  [1m[35m (1.5ms)[0m  DELETE FROM "role_me_roles";
+  [1m[36m (1.4ms)[0m  [1mDELETE FROM "role_me_roles_join";[0m
+  [1m[35m (1.0ms)[0m  DELETE FROM "users";
+  [1m[36m (1.5ms)[0m  [1mDELETE FROM "role_me_roles";[0m
+  [1m[35m (2.2ms)[0m  DELETE FROM "role_me_roles_join";
+  [1m[36m (1.1ms)[0m  [1mDELETE FROM "users";[0m
+  [1m[35m (1.5ms)[0m  DELETE FROM "role_me_roles";
+  [1m[36m (1.3ms)[0m  [1mDELETE FROM "role_me_roles_join";[0m
+  [1m[35m (1.2ms)[0m  DELETE FROM "users";
+  [1m[36m (1.6ms)[0m  [1mDELETE FROM "role_me_roles";[0m
+  [1m[35m (1.4ms)[0m  DELETE FROM "role_me_roles_join";
+  [1m[36m (1.2ms)[0m  [1mDELETE FROM "users";[0m
+  [1m[35m (1.6ms)[0m  DELETE FROM "role_me_roles";
+  [1m[36m (1.4ms)[0m  [1mDELETE FROM "role_me_roles_join";[0m
+  [1m[36m (0.1ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations" [0m
+Migrating to CreateUsers (20111012184816)
+Migrating to CreateRoleMeRoles (20111012220750)
+Migrating to CreateRoleMeRolesJoin (20111012220751)
+  [1m[35m (1.2ms)[0m  DELETE FROM "users";
+  [1m[36m (1.6ms)[0m  [1mDELETE FROM "role_me_roles";[0m
+  [1m[35m (1.3ms)[0m  DELETE FROM "role_me_roles_join";
+  [1m[36m (1.2ms)[0m  [1mDELETE FROM "users";[0m
+  [1m[35m (1.5ms)[0m  DELETE FROM "role_me_roles";
+  [1m[36m (1.3ms)[0m  [1mDELETE FROM "role_me_roles_join";[0m
+  [1m[35m (1.1ms)[0m  DELETE FROM "users";
+  [1m[36m (1.5ms)[0m  [1mDELETE FROM "role_me_roles";[0m
+  [1m[35m (2.1ms)[0m  DELETE FROM "role_me_roles_join";
+  [1m[36m (1.1ms)[0m  [1mDELETE FROM "users";[0m
+  [1m[35m (1.7ms)[0m  DELETE FROM "role_me_roles";
+  [1m[36m (1.5ms)[0m  [1mDELETE FROM "role_me_roles_join";[0m
+  [1m[35m (1.2ms)[0m  DELETE FROM "users";
+  [1m[36m (2.1ms)[0m  [1mDELETE FROM "role_me_roles";[0m
+  [1m[35m (1.3ms)[0m  DELETE FROM "role_me_roles_join";
+  [1m[36m (1.3ms)[0m  [1mDELETE FROM "users";[0m
+  [1m[35m (2.3ms)[0m  DELETE FROM "role_me_roles";
+  [1m[36m (1.5ms)[0m  [1mDELETE FROM "role_me_roles_join";[0m
+  [1m[36m (0.1ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations" [0m
+Migrating to CreateUsers (20111012184816)
+Migrating to CreateRoleMeRoles (20111012220750)
+Migrating to CreateRoleMeRolesJoin (20111012220751)
+  [1m[35m (1.2ms)[0m  DELETE FROM "users";
+  [1m[36m (1.5ms)[0m  [1mDELETE FROM "role_me_roles";[0m
+  [1m[35m (1.3ms)[0m  DELETE FROM "role_me_roles_join";
+  [1m[36m (1.1ms)[0m  [1mDELETE FROM "users";[0m
+  [1m[35m (1.5ms)[0m  DELETE FROM "role_me_roles";
+  [1m[36m (1.3ms)[0m  [1mDELETE FROM "role_me_roles_join";[0m
+  [1m[35m (1.0ms)[0m  DELETE FROM "users";
+  [1m[36m (1.5ms)[0m  [1mDELETE FROM "role_me_roles";[0m
+  [1m[35m (2.2ms)[0m  DELETE FROM "role_me_roles_join";
+  [1m[36mSQL (57.6ms)[0m  [1mINSERT INTO "role_me_roles" ("created_at", "name", "updated_at") VALUES (?, ?, ?)[0m  [["created_at", Wed, 12 Oct 2011 22:10:22 UTC +00:00], ["name", :admin], ["updated_at", Wed, 12 Oct 2011 22:10:22 UTC +00:00]]
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "users" ("created_at", "updated_at") VALUES (?, ?)  [["created_at", Wed, 12 Oct 2011 22:10:22 UTC +00:00], ["updated_at", Wed, 12 Oct 2011 22:10:22 UTC +00:00]]
+  [1m[36m (2.4ms)[0m  [1mDELETE FROM "users";[0m
+  [1m[35m (1.6ms)[0m  DELETE FROM "role_me_roles";
+  [1m[36m (1.4ms)[0m  [1mDELETE FROM "role_me_roles_join";[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "role_me_roles" ("created_at", "name", "updated_at") VALUES (?, ?, ?)  [["created_at", Wed, 12 Oct 2011 22:10:22 UTC +00:00], ["name", :admin], ["updated_at", Wed, 12 Oct 2011 22:10:22 UTC +00:00]]
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "users" ("created_at", "updated_at") VALUES (?, ?)[0m  [["created_at", Wed, 12 Oct 2011 22:10:22 UTC +00:00], ["updated_at", Wed, 12 Oct 2011 22:10:22 UTC +00:00]]
+  [1m[35m (1.5ms)[0m  DELETE FROM "users";
+  [1m[36m (1.8ms)[0m  [1mDELETE FROM "role_me_roles";[0m
+  [1m[35m (1.3ms)[0m  DELETE FROM "role_me_roles_join";
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "role_me_roles" ("created_at", "name", "updated_at") VALUES (?, ?, ?)[0m  [["created_at", Wed, 12 Oct 2011 22:10:22 UTC +00:00], ["name", :admin], ["updated_at", Wed, 12 Oct 2011 22:10:22 UTC +00:00]]
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "users" ("created_at", "updated_at") VALUES (?, ?)  [["created_at", Wed, 12 Oct 2011 22:10:22 UTC +00:00], ["updated_at", Wed, 12 Oct 2011 22:10:22 UTC +00:00]]
+  [1m[36m (1.1ms)[0m  [1mDELETE FROM "users";[0m
+  [1m[35m (1.5ms)[0m  DELETE FROM "role_me_roles";
+  [1m[36m (1.3ms)[0m  [1mDELETE FROM "role_me_roles_join";[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "role_me_roles" ("created_at", "name", "updated_at") VALUES (?, ?, ?)  [["created_at", Wed, 12 Oct 2011 22:10:22 UTC +00:00], ["name", :admin], ["updated_at", Wed, 12 Oct 2011 22:10:22 UTC +00:00]]
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "users" ("created_at", "updated_at") VALUES (?, ?)[0m  [["created_at", Wed, 12 Oct 2011 22:10:22 UTC +00:00], ["updated_at", Wed, 12 Oct 2011 22:10:22 UTC +00:00]]

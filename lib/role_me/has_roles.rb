@@ -5,7 +5,7 @@ module RoleMe
     module ClassMethods
       # Adds roles to the model. options:
       #
-      # * :role_class => "RoleMe::Role"
+      # * :role_class_name => "RoleMe::Role"
       #   Sets the default model that holds roles.
       #   Default: "RoleMe::Role"
       #
@@ -17,20 +17,20 @@ module RoleMe
       #
       #   * has_role
       #
-      #   * has_role :role_class => "Role"
+      #   * has_role :role_class_name => "Role"
       #
       #
       def has_roles(options = {})
         return if self.included_modules.include?(RoleMe::HasRolesMethods)
 
-        attr_accessor :role_me_options
+        cattr_accessor :role_me_options
 
         options.reverse_merge!({
           :role_class       => "RoleMe::Role",
-          :role_join_table  => "role_me_roles_join"
+          :join_table  => "role_me_roles_join"
         })
 
-        self.role_me_roles_join = options
+        self.role_me_options = options
 
         self.send(:include, RoleMe::HasRolesMethods)
       end
@@ -41,6 +41,16 @@ module RoleMe
   # Module included when you call the has_role in a model
   #
   module HasRolesMethods
+    extend ActiveSupport::Concern
+
+    included do
+
+      has_and_belongs_to_many :roles,
+                              :class_name => self.role_me_options[:role_class_name],
+                              :join_table => self.role_me_options[:role_join_table]
+
+    end
+
     module InstanceMethods
 
       # Adds the role to the model

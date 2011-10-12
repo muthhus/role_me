@@ -1,11 +1,11 @@
 require 'spec_helper'
 
-describe Unit do
+describe User do
 
 
   describe "Model" do
     it "should have a valid factory" do
-      Factory.build(:unit).should be_valid
+      Factory.build(:user).should be_valid
     end
 
     it {should have_and_belong_to_many :roles}

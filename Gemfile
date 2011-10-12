@@ -15,6 +15,7 @@ group :development, :test do
   gem "factory_girl_rails"
   gem "faker"
   gem "shoulda"
+  gem "capybara"
   gem "database_cleaner"
 end
 

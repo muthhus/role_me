@@ -18,7 +18,7 @@ Then, you have:
 
 == has_roles Options
 
-* :role_class
+* :role_class_name
   RoleMe::Role by default. You can use you own role model, just pass it through here. There are few restrictions when you use your own model:
   * You must implement the `create_with_name(role_name)` method. To create a role with the name.
   * You must implement a `by_name(role_name)` scope. To select a role by it's name.
