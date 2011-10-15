@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    role_me (1.0.0)
+    role_me (1.0.1)
       rails (~> 3.1.0)
 
 GEM
